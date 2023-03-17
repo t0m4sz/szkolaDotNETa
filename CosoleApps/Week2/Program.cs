@@ -2,7 +2,7 @@
 
 namespace Week2
 {
-    internal class Program
+    public class Program
     {
         private const string EXERCISE1_DESCRIPTION = "Create a program in which you declare variables about company employee data. The data you want to hold are:\r\n\ta. First name,\r\n\tb. Last name\r\n\tc. Age\r\n\td. Gender ('m' or 'k')\r\n\te. PESEL\r\n\tf. Employee number (e.g. 2509324094)\r\nDeclare variables of appropriate types that can hold this information";
         private const string EXERCISE2_DESCRIPTION = "Write a program in which you create 3 variables with one letter, and then write them out in the reverse order of how they were declared.";
@@ -14,17 +14,37 @@ namespace Week2
 
         static void Main(string[] args)
         {
-            int choice;
-            
             Program.InitializeConsole();
-            Program.ShowMenu();
 
-            Int32.TryParse(Console.ReadLine(), out choice);
+            MenuActionService actionService = new MenuActionService();
+            InitializeMenu(actionService);
+
+            Console.WriteLine("Welcome to week 2 homework app!");
+            Console.WriteLine("Please select exercises from which lessons you would like to see?");
+
+            Console.BackgroundColor = ConsoleColor.Green;
+
+            var mainMenu = actionService.GetMenuActionsByMenuName("Main");
+            foreach (var menuElement in mainMenu)
+            {
+                Console.WriteLine($"{menuElement.Id} {menuElement.Description}");
+            }
+
+            
+
+
+
+          //  int choice;
+            
+          //  
+          //  Program.ShowMenu();
+
+          //  Int32.TryParse(Console.ReadLine(), out choice);
             
             
            // Program.WriteColorTextLine("TEST", textColor);
 
-            switch (choice)
+           /* switch (choice)
             {
                 case 1:
                     Console.WriteLine("The number is 1!");
@@ -44,7 +64,7 @@ namespace Week2
                 default:
                     Console.WriteLine("Sorry, that is not a valid number. Try again!");
                     break;
-            }
+            }*/
 
         }
         private static void ShowMenu()
@@ -91,10 +111,18 @@ namespace Week2
         private static void InitializeConsole() 
         {
             Console.Clear();
-            Console.Title = "Homework - Week 2 lesson 4";
+            Console.Title = "Szkola dotNETa - Week 2";
             Console.ForegroundColor = ConsoleColor.White;
             Console.WindowHeight = 50;
         }
 
+        private static void InitializeMenu(MenuActionService actionService)
+        {
+            actionService.AddNewAction(1, "Lesson 4", "Main");
+            actionService.AddNewAction(2, "Lesson 7", "Main");
+            actionService.AddNewAction(3, "Lesson 8", "Main");
+        }
+
     }
+
 }

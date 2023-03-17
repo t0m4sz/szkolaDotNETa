@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Week2
 {
-    internal class MenuAction
+    public class MenuAction
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string WeekName { get; set; }
+        public string Description { get; set; }
+        public string MenuName { get; set; }
 
     }
 }
