@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel;
-using Uno;
 
 namespace Week2
 {
@@ -14,32 +13,41 @@ namespace Week2
             MenuActionService actionService = new MenuActionService();
 
             InitializeConsole();            
-            InitializeMenu(actionService);            
-
-            var actionChoice = actionService.ShowMenuActions("Main");
-
-            switch (actionChoice.KeyChar)
+            InitializeMenu(actionService);
+            bool showWarningInMain = false;
+            while (true)
             {
-                case '1':
-                    Console.Clear();
-                    actionService.ShowMenuActions("Lesson4");
-                    break;
-                case '2':
-                    Console.Clear();
-                    actionService.ShowMenuActions("Lesson7");
-                    break;
-                case '3':
-                    Console.Clear();
-                    actionService.ShowMenuActions("Lesson8");
-                    break;
-                case '4':
-                    Environment.Exit(0);
-                    break;
-                default:
-                    Console.WriteLine("\r\nSorry, that is not a valid number. Try again!");
-                    break;
+                int exNumber = 0;
+                var actionChoice = actionService.MenuActionsView("Main", showWarningInMain);
+                ConsoleKeyInfo exerciseNumber;
+                switch (actionChoice.KeyChar)
+                {
+                    case '1':
+                        exerciseNumber = actionService.MenuActionsView("Lesson4");
+                        Int32.TryParse(exerciseNumber.KeyChar.ToString(), out exNumber);
+                        var menuList = actionService.GetMenuActionsByMenuName("Lesson4");
+                        
+                        actionService.ShowExerciseDescription(exNumber, "Lesson4");
+                        Solution.ShowSolutionForExercise(exNumber, "Lesson4");
+                        break;
+                    case '2':
+                        exerciseNumber = actionService.MenuActionsView("Lesson7");
+                        Int32.TryParse(exerciseNumber.KeyChar.ToString(), out exNumber);
+                        Solution.ShowSolutionForExercise(exNumber, "Lesson7");
+                        break;
+                    case '3':
+                        exerciseNumber = actionService.MenuActionsView("Lesson8");
+                        Int32.TryParse(exerciseNumber.KeyChar.ToString(), out exNumber);
+                        Solution.ShowSolutionForExercise(exNumber, "Lesson8");
+                        break;
+                    case '4':
+                        Environment.Exit(0);
+                        break;
+                    default:
+                        showWarningInMain = true;
+                        break;
+                }
             }
-
         }
         private static void InitializeConsole() 
         {
@@ -91,6 +99,8 @@ namespace Week2
             actionService.AddNewAction(11, " - Back to main menu", "Lesson8");
 
         }
+
+
     }
 
 }

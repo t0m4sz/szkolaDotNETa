@@ -1,5 +1,5 @@
 ﻿using System;
-using Uno.Async;
+using Uno;
 
 namespace Week2
 {
@@ -26,13 +26,14 @@ namespace Week2
             return result;
         }
 
-        public ConsoleKeyInfo ShowMenuActions(string menuName)
+        public int MenuActionsView(string menuName, bool showWarning = false)
         {
+            Console.Clear();
             var menuList = GetMenuActionsByMenuName(menuName);
             if (menuName == "Main")
             {
                 Console.WriteLine("Welcome to week 2 homework app!");
-                Console.WriteLine("Please select exercises from which lessons you would like to see?");
+                Console.WriteLine("Please select exercises from which lesson you would like to see?");
 
                 foreach (var menuElement in menuList)
                 {
@@ -41,8 +42,18 @@ namespace Week2
                     Console.ForegroundColor = ConsoleColor.White;
                     Console.WriteLine(menuElement.Description);
                 }
+
+                if (showWarning == true)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("\r\nSorry, that is not a valid number! Try again!");
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
+
                 Console.Write("\nYour choice: ");
-                return Console.ReadKey();
+                var choice = Console.ReadKey();
+                //ValidateMenuChoice
+
             }
             else
             {
@@ -59,10 +70,26 @@ namespace Week2
                 Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine(menuList[menuList.Count-1].Description);
 
-                Console.WriteLine("\nPlease choose which exercise you want to check:");
-                return Console.ReadKey();
+                Console.Write("\nPlease choose which exercise you want to check :");
+                return Console.ReadLine();
             }
                         
+        }
+        public void ShowExerciseDescription(int menuId, string menuName)
+        {
+            Console.Clear();
+            var menuList = GetMenuActionsByMenuName(menuName);
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write($"Exercise [{menuId}]" + "\r\n");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine(menuList[menuId-1].Description);
+            
+        }
+
+        private bool ValidateMenuChoice()
+        {
+            return true;
         }
     }
 }
