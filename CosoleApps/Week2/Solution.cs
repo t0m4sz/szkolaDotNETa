@@ -27,6 +27,11 @@ namespace Week2
                 Console.WriteLine("Rozwiazanie zadania 4 lekcja 4");
                 Console.ReadKey();
             }
+            else if (exerciseNumber == 5 && lessonNumber == "Lesson4")
+            {
+                Console.WriteLine("Rozwiazanie zadania 5 lekcja 4");
+                Console.ReadKey();
+            }
             else if (exerciseNumber == 1 && lessonNumber == "Lesson7")
             {
                 Console.WriteLine("Rozwiazanie zadania 1 lekcja 7");

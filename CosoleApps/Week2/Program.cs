@@ -17,30 +17,25 @@ namespace Week2
             bool showWarningInMain = false;
             while (true)
             {
-                int exNumber = 0;
-                var actionChoice = actionService.MenuActionsView("Main", showWarningInMain);
-                ConsoleKeyInfo exerciseNumber;
-                switch (actionChoice.KeyChar)
+                //int exNumber = 0;
+                int actionChoice = actionService.MenuActionsView("Main", showWarningInMain);
+                int exerciseNumber;
+                switch (actionChoice)
                 {
-                    case '1':
+                    case 1:
                         exerciseNumber = actionService.MenuActionsView("Lesson4");
-                        Int32.TryParse(exerciseNumber.KeyChar.ToString(), out exNumber);
-                        var menuList = actionService.GetMenuActionsByMenuName("Lesson4");
-                        
-                        actionService.ShowExerciseDescription(exNumber, "Lesson4");
-                        Solution.ShowSolutionForExercise(exNumber, "Lesson4");
+                        actionService.ShowExerciseDescription(exerciseNumber, "Lesson4");
+                        Solution.ShowSolutionForExercise(exerciseNumber, "Lesson4");
                         break;
-                    case '2':
+                    case 2:
                         exerciseNumber = actionService.MenuActionsView("Lesson7");
-                        Int32.TryParse(exerciseNumber.KeyChar.ToString(), out exNumber);
-                        Solution.ShowSolutionForExercise(exNumber, "Lesson7");
+                        Solution.ShowSolutionForExercise(exerciseNumber, "Lesson7");
                         break;
-                    case '3':
+                    case 3:
                         exerciseNumber = actionService.MenuActionsView("Lesson8");
-                        Int32.TryParse(exerciseNumber.KeyChar.ToString(), out exNumber);
-                        Solution.ShowSolutionForExercise(exNumber, "Lesson8");
+                        Solution.ShowSolutionForExercise(exerciseNumber, "Lesson8");
                         break;
-                    case '4':
+                    case 4:
                         Environment.Exit(0);
                         break;
                     default:

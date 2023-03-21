@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using Uno;
 
 namespace Week2
@@ -51,9 +52,9 @@ namespace Week2
                 }
 
                 Console.Write("\nYour choice: ");
-                var choice = Console.ReadKey();
-                //ValidateMenuChoice
-
+                string choice = Console.ReadLine();
+                int menuId = ValidateMenuChoice(choice, menuName);
+                return menuId;
             }
             else
             {
@@ -71,7 +72,9 @@ namespace Week2
                 Console.WriteLine(menuList[menuList.Count-1].Description);
 
                 Console.Write("\nPlease choose which exercise you want to check :");
-                return Console.ReadLine();
+                string choice = Console.ReadLine();
+                int menuId = ValidateMenuChoice(choice, menuName);
+                return menuId;
             }
                         
         }
@@ -87,9 +90,23 @@ namespace Week2
             
         }
 
-        private bool ValidateMenuChoice()
+        private int ValidateMenuChoice(string choice, string menuName)
         {
-            return true;
+            int choiceAsNumber = 0;
+            if (choice != null)
+            {
+                if (Int32.TryParse(choice, out choiceAsNumber))
+                {
+                    var menuList = GetMenuActionsByMenuName(menuName) ;
+                    if (choiceAsNumber <= menuList.Count)
+                    {
+                        return choiceAsNumber;
+                    }
+                    else return 0;
+                }                    
+                else return 0;  
+            } 
+            else return 0;
         }
     }
 }
