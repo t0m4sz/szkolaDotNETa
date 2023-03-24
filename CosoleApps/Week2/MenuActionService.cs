@@ -40,7 +40,7 @@ namespace Week2
                 {
                     WriteMenuLine(menuElement.Id, menuElement.Description);
                 }
-
+                
                 if (showWarning == true)
                 {
                     showInvalidInputMessage("\r\nSorry, that is not a valid number! Try again!");
@@ -56,11 +56,6 @@ namespace Week2
                 for(int i = 0; i < (menuList.Count - 1); i++) 
                 {
                     WriteExerciseMenuLine(menuList[i].Id, menuList[i].Description);
-
-                    //Console.ForegroundColor = Helpers.CAPTION_COLOR;
-                    //Console.Write($"Exercise [{menuList[i].Id}]" + "\r\n");
-                    //Console.ForegroundColor = Helpers.TEXT_COLOR;
-                    //Console.WriteLine(menuList[i].Description);
                 }
                 
                 WriteMenuLine(menuList[menuList.Count - 1].Id, menuList[menuList.Count - 1].Description);
@@ -83,38 +78,29 @@ namespace Week2
         }
         private void WriteMenuLine (int menuId, string menuDescription)
         {
-            Console.ForegroundColor = Helpers.CAPTION_COLOR;
+            Console.ForegroundColor = Helpers.EXERCISE_CAPTION_COLOR;
             Console.Write($"[{menuId}]");
             Console.ForegroundColor = Helpers.TEXT_COLOR;
             Console.WriteLine(menuDescription);
         }
-
         private void WriteExerciseMenuLine(int menuId, string menuDescription)
         {
-            Console.ForegroundColor = Helpers.CAPTION_COLOR;
+            Console.ForegroundColor = Helpers.EXERCISE_CAPTION_COLOR;
             Console.Write($"Exercise [{menuId}]" + "\r\n");
             Console.ForegroundColor = Helpers.TEXT_COLOR;
             Console.WriteLine(menuDescription);
-
-
-            //Console.ForegroundColor = Helpers.CAPTION_COLOR;
-            //Console.Write($"[{menuId}]");
-            //Console.ForegroundColor = Helpers.TEXT_COLOR;
-            //Console.WriteLine(menuDescription);
         }
-
         public void ShowExerciseDescription(int menuId, string menuName)
         {
             Console.Clear();
             var menuList = GetMenuActionsByMenuName(menuName);
 
-            Console.ForegroundColor = Helpers.CAPTION_COLOR;
+            Console.ForegroundColor = Helpers.EXERCISE_CAPTION_COLOR;
             Console.Write($"Exercise [{menuId}]" + "\r\n");
             Console.ForegroundColor = Helpers.TEXT_COLOR;
             Console.WriteLine(menuList[menuId-1].Description);
             
         }
-
         private int ValidateMenuChoice(string choice, string menuName)
         {
             int choiceAsNumber = 0;
@@ -133,7 +119,6 @@ namespace Week2
             } 
             else return 0;
         }
-
         private void showInvalidInputMessage (string message)
         {
             Console.ForegroundColor = Helpers.WARNING_COLOR;

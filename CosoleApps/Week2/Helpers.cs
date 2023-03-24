@@ -4,10 +4,11 @@ namespace Week2
 {
     public static class Helpers
     {
-        public const ConsoleColor CAPTION_COLOR = ConsoleColor.Green;
-        public const ConsoleColor CODE_COLOR = ConsoleColor.DarkCyan;
+        public const ConsoleColor EXERCISE_CAPTION_COLOR = ConsoleColor.Green;
+        public const ConsoleColor CODE_COLOR = ConsoleColor.Magenta;
         public const ConsoleColor TEXT_COLOR = ConsoleColor.White;
         public const ConsoleColor WARNING_COLOR = ConsoleColor.Red;
+        public const ConsoleColor SOLUTION_CAPTION_COLOR = ConsoleColor.Blue;
 
 
         public static void InitializeConsole()
@@ -27,7 +28,7 @@ namespace Week2
 
             actionService.AddNewAction(1, "Create a program in which you declare variables about company employee data. The data you want to hold are:\r\n\ta. First name,\r\n\tb. Last name\r\n\tc. Age\r\n\td. Gender ('m' or 'k')\r\n\te. PESEL\r\n\tf. Employee number (e.g. 2509324094)\r\nDeclare variables of appropriate types that can hold this information.\r\n", "Lesson4");
             actionService.AddNewAction(2, "Write a program in which you create 3 variables with one letter, and then write them out in the reverse order of how they were declared.\r\n", "Lesson4");
-            actionService.AddNewAction(3, "Write a program that calculates the length of the diagonal based on the given width and length of the rectangle. (To calculate the square of a number use Math.Pow() method).\r\n", "Lesson4");
+            actionService.AddNewAction(3, "Write a program that calculates the length of the diagonal based on the given width and hight of the rectangle. (To calculate the square of a number use Math.Pow() method).\r\n", "Lesson4");
             actionService.AddNewAction(4, "Write a program in which you create 2 numeric variables and one text variable, and then assign them the following values:\r\n\ta. 10\r\n\tb. Dotnet school\r\n\tc. 12,5\r\nRemember to use the correct data types.\r\n", "Lesson4");
             actionService.AddNewAction(5, "Write a program in which you ask a user for his/her personal information, i.e. First name, last name, phone number, email address, height, weight (e.g. 85.7), etc. (try to come up with as many as possible) and try to convert the response to the appropriate data type using  method:\r\ndataType.Parse(responseFromUser).\r\n", "Lesson4");
             actionService.AddNewAction(6, " - Back to main menu", "Lesson4");

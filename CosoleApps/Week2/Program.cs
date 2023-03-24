@@ -19,8 +19,7 @@ namespace Week2
                 int actionChoice = actionService.MenuActionsView("Main", showInvalidInputMessage);
                 showInvalidInputMessage = false;
                 int exerciseNumber = 0;
-                //bool exitFlag;
-
+               
                 switch (actionChoice)
                 {                   
                     case 1:
@@ -31,7 +30,7 @@ namespace Week2
                             if (exerciseNumber > 0)
                             {
                                 actionService.ShowExerciseDescription(exerciseNumber, "Lesson4");
-                                Solution.ShowSolutionForExercise(exerciseNumber, "Lesson4");
+                                SolutionService.ShowExerciseSolution(exerciseNumber, "Lesson4");
                             }
                             else if (exerciseNumber == -1)
                                 break;
@@ -40,12 +39,36 @@ namespace Week2
                         }
                         break;
                     case 2:
-                        exerciseNumber = actionService.MenuActionsView("Lesson7");
-                        Solution.ShowSolutionForExercise(exerciseNumber, "Lesson7");
+                        while (true)
+                        {
+                            exerciseNumber = actionService.MenuActionsView("Lesson7", showInvalidInputMessage);
+                            showInvalidInputMessage = false;
+                            if (exerciseNumber > 0)
+                            {
+                                actionService.ShowExerciseDescription(exerciseNumber, "Lesson7");
+                                SolutionService.ShowExerciseSolution(exerciseNumber, "Lesson7");
+                            }
+                            else if (exerciseNumber == -1)
+                                break;
+                            else
+                                showInvalidInputMessage = true;
+                        }
                         break;
                     case 3:
-                        exerciseNumber = actionService.MenuActionsView("Lesson8");
-                        Solution.ShowSolutionForExercise(exerciseNumber, "Lesson8");
+                        while (true)
+                        {
+                            exerciseNumber = actionService.MenuActionsView("Lesson8", showInvalidInputMessage);
+                            showInvalidInputMessage = false;
+                            if (exerciseNumber > 0)
+                            {
+                                actionService.ShowExerciseDescription(exerciseNumber, "Lesson8");
+                                SolutionService.ShowExerciseSolution(exerciseNumber, "Lesson8");
+                            }
+                            else if (exerciseNumber == -1)
+                                break;
+                            else
+                                showInvalidInputMessage = true;
+                        }                        
                         break;
                     case 4:
                         Environment.Exit(0);
