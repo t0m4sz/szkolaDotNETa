@@ -94,13 +94,12 @@ namespace Week2
                 while (continueLoop)
                 {
                     string name = string.Empty;
-                    string lastName = "";
-                    string phoneNumber = "";
-                    string email = "";
+                    string lastName = string.Empty;
+                    string phoneNumber = string.Empty;
+                    string email = string.Empty;
                     double height = 0;
                     double weight = 0;
                     int age = 0;
-
                     
                     Console.Write("\r\nWhat is your name: ");
                     name = Console.ReadLine();
@@ -122,7 +121,6 @@ namespace Week2
                         Console.Write("What is your name: ");
                         lastName = Console.ReadLine();
                     }
-
                     Console.Write("Your phone number: ");
                     phoneNumber = Console.ReadLine();
                     while (phoneNumber.IsNullOrEmpty())
@@ -133,7 +131,6 @@ namespace Week2
                         Console.Write("What is your name: ");
                         phoneNumber = Console.ReadLine();
                     }
-
                     Console.Write("Type your email address: ");
                     email = Console.ReadLine();
                     while (email.IsNullOrEmpty())
@@ -172,7 +169,6 @@ namespace Week2
                     Console.Write($"Your name is {name} {lastName}.\r\nYou are {age} years old.\r\nYour phone number is {phoneNumber}.\r\nYour email address is {email}.\r\nYou are {height}cm tall and your weight is {weight}kg.\r\n");
                     continueLoop = ExitSolutionMenuView();
                 }
-
             }
             else if (exerciseNumber == 1 && lessonNumber == "Lesson7")
             {
