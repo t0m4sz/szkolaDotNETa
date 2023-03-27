@@ -81,13 +81,25 @@ namespace Week2
             }            
             else
             {
-                foreach (var menuElement in menuList)
+                //foreach (var menuElement in menuList)
+                //{
+                //    Console.ForegroundColor = Helpers.EXERCISE_CAPTION_COLOR;
+                //    Console.Write($"Exercise [{menuElement.Id}]" + "\r\n");
+                //    Console.ForegroundColor = Helpers.TEXT_COLOR;
+                //    Console.WriteLine(menuElement.Description);
+                //}
+                for (int i = 0; i < (menuList.Count - 1); i++)
                 {
                     Console.ForegroundColor = Helpers.EXERCISE_CAPTION_COLOR;
-                    Console.Write($"Exercise [{menuElement.Id}]" + "\r\n");
+                    Console.Write($"Exercise [{menuList[i].Id}]" + "\r\n");
                     Console.ForegroundColor = Helpers.TEXT_COLOR;
-                    Console.WriteLine(menuElement.Description);
+                    Console.WriteLine(menuList[i].Description);
                 }
+
+                Console.ForegroundColor = Helpers.EXERCISE_CAPTION_COLOR;
+                Console.Write($"[{menuList[menuList.Count - 1].Id}]");
+                Console.ForegroundColor = Helpers.TEXT_COLOR;
+                Console.WriteLine(menuList[menuList.Count - 1].Description);
             }
         }
         public void ExerciseDescriptionView(int menuId, string menuName)
