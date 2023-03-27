@@ -1,4 +1,5 @@
 ﻿using System;
+using Uno.Extensions;
 
 namespace Week2
 {
@@ -11,7 +12,7 @@ namespace Week2
             Console.ForegroundColor = Helpers.TEXT_COLOR;
         }
 
-        private static bool ExitMenuView()
+        private static bool ExitSolutionMenuView()
         {
             Console.Write("\r\nPress 'a' key to run script again. \r\nPress any other key to return to previous menu :");
             ConsoleKeyInfo choice = Console.ReadKey();
@@ -72,18 +73,106 @@ namespace Week2
                     string result = diagonal.ToString("F2");
                     Console.WriteLine($"Your diagonal length is: {result}");
 
-                    continueLoop = ExitMenuView();                 
+                    continueLoop = ExitSolutionMenuView();                 
                 }
             }
             else if (exerciseNumber == 4 && lessonNumber == "Lesson4")
             {
+                SolutionCaptionView();
+                Console.WriteLine("There is no console output. Only code to review.");
+                Console.ForegroundColor = Helpers.CODE_COLOR;
+                Console.WriteLine("\r\nint numberI = 10;\r\nstring text = \"Szkoła Dotneta\";\r\ndouble numberD = 12.5;\r\n");
+                Console.ForegroundColor = Helpers.TEXT_COLOR;
                 Console.WriteLine("\r\nPress any key to return to the previous menu...");
                 Console.ReadKey();
             }
             else if (exerciseNumber == 5 && lessonNumber == "Lesson4")
             {
-                Console.WriteLine("Rozwiazanie zadania 5 lekcja 4");
-                Console.ReadKey();
+                SolutionCaptionView();
+                Console.WriteLine("Welcome to the app! Please provide some information below.");
+                bool continueLoop = true;
+                while (continueLoop)
+                {
+                    string name = string.Empty;
+                    string lastName = "";
+                    string phoneNumber = "";
+                    string email = "";
+                    double height = 0;
+                    double weight = 0;
+                    int age = 0;
+
+                    
+                    Console.Write("\r\nWhat is your name: ");
+                    name = Console.ReadLine();
+                    while (name.IsNullOrEmpty())
+                    {
+                        Console.ForegroundColor = Helpers.WARNING_COLOR;
+                        Console.WriteLine("You didn't provide any info! Try again.");
+                        Console.ForegroundColor = Helpers.TEXT_COLOR;
+                        Console.Write("What is your name: ");
+                        name = Console.ReadLine();
+                    }
+                    Console.Write("What is your last name: ");
+                    lastName = Console.ReadLine();
+                    while (lastName.IsNullOrEmpty())
+                    {
+                        Console.ForegroundColor = Helpers.WARNING_COLOR;
+                        Console.WriteLine("You didn't provide any info! Try again.");
+                        Console.ForegroundColor = Helpers.TEXT_COLOR;
+                        Console.Write("What is your name: ");
+                        lastName = Console.ReadLine();
+                    }
+
+                    Console.Write("Your phone number: ");
+                    phoneNumber = Console.ReadLine();
+                    while (phoneNumber.IsNullOrEmpty())
+                    {
+                        Console.ForegroundColor = Helpers.WARNING_COLOR;
+                        Console.WriteLine("You didn't provide any info! Try again.");
+                        Console.ForegroundColor = Helpers.TEXT_COLOR;
+                        Console.Write("What is your name: ");
+                        phoneNumber = Console.ReadLine();
+                    }
+
+                    Console.Write("Type your email address: ");
+                    email = Console.ReadLine();
+                    while (email.IsNullOrEmpty())
+                    {
+                        Console.ForegroundColor = Helpers.WARNING_COLOR;
+                        Console.WriteLine("You didn't provide any info! Try again.");
+                        Console.ForegroundColor = Helpers.TEXT_COLOR;
+                        Console.Write("What is your name: ");
+                        email = Console.ReadLine();
+                    }
+                    Console.Write("What is your age in years: ");
+                    while (!Int32.TryParse(Console.ReadLine(), out age))
+                    {
+                        Console.ForegroundColor = Helpers.WARNING_COLOR;
+                        Console.WriteLine("It is not valid number! Try again.");
+                        Console.ForegroundColor = Helpers.TEXT_COLOR;
+                        Console.Write("What is your age in years: ");
+                    }
+                    Console.Write("What is your height in cm: ");
+                    while (!Double.TryParse(Console.ReadLine(), out height))
+                    {
+                        Console.ForegroundColor = Helpers.WARNING_COLOR;
+                        Console.WriteLine("It is not valid number! Try again.");
+                        Console.ForegroundColor = Helpers.TEXT_COLOR;
+                        Console.Write("What is your height in cm: ");
+                    }
+                    Console.Write("What is your weight in kg: ");
+                    while (!Double.TryParse(Console.ReadLine(), out weight))
+                    {
+                        Console.ForegroundColor = Helpers.WARNING_COLOR;
+                        Console.WriteLine("It is not valid number! Try again.");
+                        Console.ForegroundColor = Helpers.TEXT_COLOR;
+                        Console.Write("What is your weight in kg: ");
+                    }
+                    Console.WriteLine("\r\nBelow information you provided:");
+                    Console.Write($"Your name is {name} {lastName}.\r\nYou are {age} years old.\r\nYour phone number is {phoneNumber}.\r\nYour email address is {email}.\r\nYou are {height}cm tall and your weight is {weight}kg.\r\n");
+                    continueLoop = ExitSolutionMenuView();
+                }
+
             }
             else if (exerciseNumber == 1 && lessonNumber == "Lesson7")
             {

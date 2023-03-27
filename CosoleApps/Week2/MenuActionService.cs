@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualBasic;
 using System;
+using System.Reflection.Metadata.Ecma335;
 using Uno;
 
 namespace Week2
@@ -27,73 +28,72 @@ namespace Week2
             return result;
         }
 
-        public int MenuActionsView(string menuName, bool showWarning = false)
+        public int MenuActionsView(string menuName, bool warningFlag = false)
         {
             Console.Clear();
-            var menuList = GetMenuActionsByMenuName(menuName);
+            List<MenuAction> menuList = GetMenuActionsByMenuName(menuName);
             if (menuName == "Main")
             {
                 Console.WriteLine("Welcome to week 2 homework app!");
                 Console.WriteLine("Please select exercises from which lesson you would like to see?");
 
-                foreach (var menuElement in menuList)
-                {
-                    WriteMenuLine(menuElement.Id, menuElement.Description);
-                }
-                
-                if (showWarning == true)
-                {
-                    showInvalidInputMessage("\r\nSorry, that is not a valid number! Try again!");
-                }
+                MenuLinesView(menuName);
+                WarningMessageView(warningFlag);
 
-                Console.Write("\nYour choice: ");
-                string choice = Console.ReadLine();
-                int menuId = ValidateMenuChoice(choice, menuName);
-                return menuId;
+                int choosenId = ChoiceMenuView(menuName);
+                return choosenId;
             }
             else
             {
-                for(int i = 0; i < (menuList.Count - 1); i++) 
-                {
-                    WriteExerciseMenuLine(menuList[i].Id, menuList[i].Description);
-                }
-                
-                WriteMenuLine(menuList[menuList.Count - 1].Id, menuList[menuList.Count - 1].Description);
-                
-                if (showWarning == true)
-                {
-                    showInvalidInputMessage("\r\nSorry, that is not a valid number! Try again!");
-                }
+                MenuLinesView(menuName);
+                WarningMessageView(warningFlag);
 
-                Console.Write("\nPlease choose which exercise you want to check: ");
-                string choice = Console.ReadLine();
-                int menuId = ValidateMenuChoice(choice, menuName);
+                int choosenId = ChoiceMenuView(menuName);
 
-                if (menuId == menuList.Count)
+                if (choosenId == menuList.Count)
                     return -1;
                 else
-                    return menuId;
+                    return choosenId;
             }
-                        
         }
-        private void WriteMenuLine (int menuId, string menuDescription)
+        private void WarningMessageView(bool warningFlag)
         {
-            Console.ForegroundColor = Helpers.EXERCISE_CAPTION_COLOR;
-            Console.Write($"[{menuId}]");
-            Console.ForegroundColor = Helpers.TEXT_COLOR;
-            Console.WriteLine(menuDescription);
+            if (warningFlag == true)
+            {
+                InvalidMsgView("\r\nSorry, that is not a valid choice! Try again!");
+            }
         }
-        private void WriteExerciseMenuLine(int menuId, string menuDescription)
+        
+        public void MenuLinesView (string menuName)
         {
-            Console.ForegroundColor = Helpers.EXERCISE_CAPTION_COLOR;
-            Console.Write($"Exercise [{menuId}]" + "\r\n");
-            Console.ForegroundColor = Helpers.TEXT_COLOR;
-            Console.WriteLine(menuDescription);
+            
+            List<MenuAction> menuList = GetMenuActionsByMenuName(menuName);
+            
+            if (menuName == "Main")
+            {
+                foreach (var menuElement in menuList)
+                {
+                    Console.ForegroundColor = Helpers.EXERCISE_CAPTION_COLOR;
+                    Console.Write($"[{menuElement.Id}]");
+                    Console.ForegroundColor = Helpers.TEXT_COLOR;
+                    Console.WriteLine(menuElement.Description);
+                }                
+            }            
+            else
+            {
+                foreach (var menuElement in menuList)
+                {
+                    Console.ForegroundColor = Helpers.EXERCISE_CAPTION_COLOR;
+                    Console.Write($"Exercise [{menuElement.Id}]" + "\r\n");
+                    Console.ForegroundColor = Helpers.TEXT_COLOR;
+                    Console.WriteLine(menuElement.Description);
+                }
+            }
         }
-        public void ShowExerciseDescription(int menuId, string menuName)
+        public void ExerciseDescriptionView(int menuId, string menuName)
         {
             Console.Clear();
-            var menuList = GetMenuActionsByMenuName(menuName);
+            List<MenuAction> menuList = GetMenuActionsByMenuName(menuName);
 
             Console.ForegroundColor = Helpers.EXERCISE_CAPTION_COLOR;
             Console.Write($"Exercise [{menuId}]" + "\r\n");
@@ -119,11 +119,19 @@ namespace Week2
             } 
             else return 0;
         }
-        private void showInvalidInputMessage (string message)
+        private void InvalidMsgView (string message)
         {
             Console.ForegroundColor = Helpers.WARNING_COLOR;
             Console.WriteLine(message);
             Console.ForegroundColor = Helpers.TEXT_COLOR;
+        }
+
+        private int ChoiceMenuView(string menuName)
+        {
+            Console.Write("\nPlease choose which exercise do you want to check: ");
+            string choice = Console.ReadLine();
+            int choosenId = ValidateMenuChoice(choice, menuName);
+            return choosenId;
         }
     }
 }

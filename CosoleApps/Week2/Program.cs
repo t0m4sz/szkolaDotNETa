@@ -12,12 +12,12 @@ namespace Week2
             MenuActionService actionService = new MenuActionService();        
             Helpers.InitializeConsole();            
             Helpers.InitializeMenu(actionService);
-            bool showInvalidInputMessage = false;
+            bool warningFlag = false;
 
             while (true)
             {
-                int actionChoice = actionService.MenuActionsView("Main", showInvalidInputMessage);
-                showInvalidInputMessage = false;
+                int actionChoice = actionService.MenuActionsView("Main", warningFlag);
+                warningFlag = false;
                 int exerciseNumber = 0;
                
                 switch (actionChoice)
@@ -25,56 +25,56 @@ namespace Week2
                     case 1:
                         while (true)
                         {
-                            exerciseNumber = actionService.MenuActionsView("Lesson4", showInvalidInputMessage);
-                            showInvalidInputMessage = false;
+                            exerciseNumber = actionService.MenuActionsView("Lesson4", warningFlag);
+                            warningFlag = false;
                             if (exerciseNumber > 0)
-                            {
-                                actionService.ShowExerciseDescription(exerciseNumber, "Lesson4");
+                            {                                
+                                actionService.ExerciseDescriptionView(exerciseNumber, "Lesson4");
                                 SolutionService.ShowExerciseSolution(exerciseNumber, "Lesson4");
                             }
                             else if (exerciseNumber == -1)
                                 break;
                             else
-                                showInvalidInputMessage = true;
+                                warningFlag = true;
                         }
                         break;
                     case 2:
                         while (true)
                         {
-                            exerciseNumber = actionService.MenuActionsView("Lesson7", showInvalidInputMessage);
-                            showInvalidInputMessage = false;
+                            exerciseNumber = actionService.MenuActionsView("Lesson7", warningFlag);
+                            warningFlag = false;
                             if (exerciseNumber > 0)
                             {
-                                actionService.ShowExerciseDescription(exerciseNumber, "Lesson7");
+                                actionService.ExerciseDescriptionView(exerciseNumber, "Lesson7");
                                 SolutionService.ShowExerciseSolution(exerciseNumber, "Lesson7");
                             }
                             else if (exerciseNumber == -1)
                                 break;
                             else
-                                showInvalidInputMessage = true;
+                                warningFlag = true;
                         }
                         break;
                     case 3:
                         while (true)
                         {
-                            exerciseNumber = actionService.MenuActionsView("Lesson8", showInvalidInputMessage);
-                            showInvalidInputMessage = false;
+                            exerciseNumber = actionService.MenuActionsView("Lesson8", warningFlag);
+                            warningFlag = false;
                             if (exerciseNumber > 0)
                             {
-                                actionService.ShowExerciseDescription(exerciseNumber, "Lesson8");
+                                actionService.ExerciseDescriptionView(exerciseNumber, "Lesson8");
                                 SolutionService.ShowExerciseSolution(exerciseNumber, "Lesson8");
                             }
                             else if (exerciseNumber == -1)
                                 break;
                             else
-                                showInvalidInputMessage = true;
+                                warningFlag = true;
                         }                        
                         break;
                     case 4:
                         Environment.Exit(0);
                         break;
                     default:
-                        showInvalidInputMessage = true;
+                        warningFlag = true;
                         break;
                 }
             }
