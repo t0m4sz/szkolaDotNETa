@@ -149,7 +149,7 @@ namespace Week2
                         Console.ForegroundColor = Helpers.TEXT_COLOR;
                         Console.Write("What is your age in years: ");
                     }
-                    Console.Write("What is your height in cm: ");
+                    Console.Write("What is your height: ");
                     while (!Double.TryParse(Console.ReadLine(), out height))
                     {
                         Console.ForegroundColor = Helpers.WARNING_COLOR;
