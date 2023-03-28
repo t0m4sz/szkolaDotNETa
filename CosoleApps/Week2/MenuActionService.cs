@@ -1,7 +1,4 @@
-﻿using Microsoft.VisualBasic;
-using System;
-using System.Reflection.Metadata.Ecma335;
-using Uno;
+﻿using System;
 
 namespace Week2
 {

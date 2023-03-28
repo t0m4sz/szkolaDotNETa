@@ -1,5 +1,4 @@
 ﻿using System;
-using Uno.Extensions;
 
 namespace Week2
 {
@@ -103,42 +102,42 @@ namespace Week2
                     
                     Console.Write("\r\nWhat is your name: ");
                     name = Console.ReadLine();
-                    while (name.IsNullOrEmpty())
+                    while (string.IsNullOrEmpty(name))
                     {
                         Console.ForegroundColor = Helpers.WARNING_COLOR;
                         Console.WriteLine("You didn't provide any info! Try again.");
                         Console.ForegroundColor = Helpers.TEXT_COLOR;
-                        Console.Write("What is your name: ");
+                        Console.Write("What is your name?: ");
                         name = Console.ReadLine();
                     }
                     Console.Write("What is your last name: ");
                     lastName = Console.ReadLine();
-                    while (lastName.IsNullOrEmpty())
+                    while (string.IsNullOrEmpty(lastName))
                     {
                         Console.ForegroundColor = Helpers.WARNING_COLOR;
                         Console.WriteLine("You didn't provide any info! Try again.");
                         Console.ForegroundColor = Helpers.TEXT_COLOR;
-                        Console.Write("What is your name: ");
+                        Console.Write("What is your last name?: ");
                         lastName = Console.ReadLine();
                     }
                     Console.Write("Your phone number: ");
                     phoneNumber = Console.ReadLine();
-                    while (phoneNumber.IsNullOrEmpty())
+                    while (string.IsNullOrEmpty(phoneNumber))
                     {
                         Console.ForegroundColor = Helpers.WARNING_COLOR;
                         Console.WriteLine("You didn't provide any info! Try again.");
                         Console.ForegroundColor = Helpers.TEXT_COLOR;
-                        Console.Write("What is your name: ");
+                        Console.Write("What is your phone number?: ");
                         phoneNumber = Console.ReadLine();
                     }
                     Console.Write("Type your email address: ");
                     email = Console.ReadLine();
-                    while (email.IsNullOrEmpty())
+                    while (string.IsNullOrEmpty(email))
                     {
                         Console.ForegroundColor = Helpers.WARNING_COLOR;
                         Console.WriteLine("You didn't provide any info! Try again.");
                         Console.ForegroundColor = Helpers.TEXT_COLOR;
-                        Console.Write("What is your name: ");
+                        Console.Write("What is your email?: ");
                         email = Console.ReadLine();
                     }
                     Console.Write("What is your age in years: ");
