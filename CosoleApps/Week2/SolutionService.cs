@@ -23,9 +23,15 @@ namespace Week2
                     return false;
             }
         }
+        private static void WarningMessageView(string message)
+        {
+            Console.ForegroundColor = Helpers.WARNING_COLOR;
+            Console.WriteLine(message);
+            Console.ForegroundColor = Helpers.TEXT_COLOR;
+        }
         public static void ShowExerciseSolution(int exerciseNumber, string lessonNumber)
         {
-            
+
             if (exerciseNumber == 1 && lessonNumber == "Lesson4")
             {
                 SolutionCaptionView();
@@ -36,7 +42,7 @@ namespace Week2
                 Console.WriteLine("\r\nPress any key to return to the previous menu...");
                 Console.ReadKey();
             }
-            else if (exerciseNumber == 2 && lessonNumber == "Lesson4") 
+            else if (exerciseNumber == 2 && lessonNumber == "Lesson4")
             {
                 SolutionCaptionView();
                 Console.WriteLine("Code to review.");
@@ -46,7 +52,7 @@ namespace Week2
                 Console.ForegroundColor = Helpers.SOLUTION_CAPTION_COLOR;
                 Console.WriteLine("Console output:");
                 Console.ForegroundColor = Helpers.TEXT_COLOR;
-                
+
                 char a = 'a'; char b = 'b'; char c = 'c';
                 Console.WriteLine($"{c} {b} {a}");
 
@@ -59,11 +65,11 @@ namespace Week2
                 bool continueLoop = true;
                 while (continueLoop)
                 {
-                    double a; 
-                    double b; 
+                    double a;
+                    double b;
                     double diagonal;
                     Console.Write("\r\nGive the length of side A of the rectangle: ");
-                    Double.TryParse(Console.ReadLine(),out a);
+                    Double.TryParse(Console.ReadLine(), out a);
                     Console.Write("Give the length of side B of the rectangle: ");
                     Double.TryParse(Console.ReadLine(), out b);
 
@@ -72,7 +78,7 @@ namespace Week2
                     string result = diagonal.ToString("F2");
                     Console.WriteLine($"Your diagonal length is: {result}");
 
-                    continueLoop = ExitSolutionMenuView();                 
+                    continueLoop = ExitSolutionMenuView();
                 }
             }
             else if (exerciseNumber == 4 && lessonNumber == "Lesson4")
@@ -99,14 +105,12 @@ namespace Week2
                     double height = 0;
                     double weight = 0;
                     int age = 0;
-                    
+
                     Console.Write("\r\nWhat is your name: ");
                     name = Console.ReadLine();
                     while (string.IsNullOrEmpty(name))
                     {
-                        Console.ForegroundColor = Helpers.WARNING_COLOR;
-                        Console.WriteLine("You didn't provide any info! Try again.");
-                        Console.ForegroundColor = Helpers.TEXT_COLOR;
+                        WarningMessageView("You didn't provide any info! Try again.");                        
                         Console.Write("What is your name?: ");
                         name = Console.ReadLine();
                     }
@@ -114,9 +118,7 @@ namespace Week2
                     lastName = Console.ReadLine();
                     while (string.IsNullOrEmpty(lastName))
                     {
-                        Console.ForegroundColor = Helpers.WARNING_COLOR;
-                        Console.WriteLine("You didn't provide any info! Try again.");
-                        Console.ForegroundColor = Helpers.TEXT_COLOR;
+                        WarningMessageView("You didn't provide any info! Try again.");
                         Console.Write("What is your last name?: ");
                         lastName = Console.ReadLine();
                     }
@@ -124,9 +126,7 @@ namespace Week2
                     phoneNumber = Console.ReadLine();
                     while (string.IsNullOrEmpty(phoneNumber))
                     {
-                        Console.ForegroundColor = Helpers.WARNING_COLOR;
-                        Console.WriteLine("You didn't provide any info! Try again.");
-                        Console.ForegroundColor = Helpers.TEXT_COLOR;
+                        WarningMessageView("You didn't provide any info! Try again.");
                         Console.Write("What is your phone number?: ");
                         phoneNumber = Console.ReadLine();
                     }
@@ -134,34 +134,26 @@ namespace Week2
                     email = Console.ReadLine();
                     while (string.IsNullOrEmpty(email))
                     {
-                        Console.ForegroundColor = Helpers.WARNING_COLOR;
-                        Console.WriteLine("You didn't provide any info! Try again.");
-                        Console.ForegroundColor = Helpers.TEXT_COLOR;
+                        WarningMessageView("You didn't provide any info! Try again.");
                         Console.Write("What is your email?: ");
                         email = Console.ReadLine();
                     }
                     Console.Write("What is your age in years: ");
                     while (!Int32.TryParse(Console.ReadLine(), out age))
                     {
-                        Console.ForegroundColor = Helpers.WARNING_COLOR;
-                        Console.WriteLine("It is not valid number! Try again.");
-                        Console.ForegroundColor = Helpers.TEXT_COLOR;
+                        WarningMessageView("It is not valid number! Try again.");                        
                         Console.Write("What is your age in years: ");
                     }
                     Console.Write("What is your height: ");
                     while (!Double.TryParse(Console.ReadLine(), out height))
                     {
-                        Console.ForegroundColor = Helpers.WARNING_COLOR;
-                        Console.WriteLine("It is not valid number! Try again.");
-                        Console.ForegroundColor = Helpers.TEXT_COLOR;
+                        WarningMessageView("It is not valid number! Try again.");
                         Console.Write("What is your height in cm: ");
                     }
                     Console.Write("What is your weight in kg: ");
                     while (!Double.TryParse(Console.ReadLine(), out weight))
                     {
-                        Console.ForegroundColor = Helpers.WARNING_COLOR;
-                        Console.WriteLine("It is not valid number! Try again.");
-                        Console.ForegroundColor = Helpers.TEXT_COLOR;
+                        WarningMessageView("It is not valid number! Try again.");
                         Console.Write("What is your weight in kg: ");
                     }
                     Console.WriteLine("\r\nBelow information you provided:");
@@ -171,38 +163,205 @@ namespace Week2
             }
             else if (exerciseNumber == 1 && lessonNumber == "Lesson7")
             {
-                Console.WriteLine("Rozwiazanie zadania 1 lekcja 7");
-                Console.ReadKey();
+                SolutionCaptionView();
+                
+                bool continueLoop = true;
+                while (continueLoop)
+                {
+                    int number1 = 0;
+                    int number2 = 0;
+
+                    Console.Write("\r\nPlease write first number: ");
+                    while (!Int32.TryParse(Console.ReadLine(), out number1))
+                    {
+                        WarningMessageView("It is not valid number! Try again.");                        
+                        Console.Write("Please write first number: ");
+                    }
+                    
+                    Console.Write("Please write second number: ");
+                    while (!Int32.TryParse(Console.ReadLine(), out number2))
+                    {
+                        WarningMessageView("It is not valid number! Try again.");
+                        Console.Write("Please write second number: ");
+                    }
+                    string result = (number1 == number2) ? "Numbers are equal" : "Numbers are not equal"; 
+                    Console.WriteLine(result);
+                    continueLoop = ExitSolutionMenuView();
+                }                
             }
             else if (exerciseNumber == 2 && lessonNumber == "Lesson7")
             {
-                Console.WriteLine("Rozwiazanie zadania 2 lekcja 7");
-                Console.ReadKey();
+                SolutionCaptionView();
+
+                bool continueLoop = true;
+                while (continueLoop)
+                {
+                    int number = 0;
+                    Console.Write("\r\nPlease type the number: ");
+                    while (!Int32.TryParse(Console.ReadLine(), out number))
+                    {
+                        WarningMessageView("It is not valid number! Try again.");
+                        Console.Write("Please type the number: ");
+                    }
+
+                    string result = ( number % 2 != 0) ? "odd." : "even.";
+                    Console.WriteLine($"{number} is {result}");
+                    continueLoop = ExitSolutionMenuView();
+                }
             }
             else if (exerciseNumber == 3 && lessonNumber == "Lesson7")
             {
-                Console.WriteLine("Rozwiazanie zadania 3 lekcja 7");
-                Console.ReadKey();
+                SolutionCaptionView();
+
+                bool continueLoop = true;
+                while (continueLoop)
+                {
+                    int number = 0;
+                    Console.Write("\r\nPlease type the number: ");
+                    while (!Int32.TryParse(Console.ReadLine(), out number))
+                    {
+                        WarningMessageView("It is not valid number! Try again.");
+                        Console.Write("Please type the number: ");
+                    }
+
+                    string result = (number > 0) ? "positive number."
+                        : (number < 0) ? "negative number."
+                        : "just zero :)";
+                    Console.WriteLine($"{number} is {result}");
+                    continueLoop = ExitSolutionMenuView();
+                }
             }
             else if (exerciseNumber == 4 && lessonNumber == "Lesson7")
             {
-                Console.WriteLine("Rozwiazanie zadania 4 lekcja 7");
-                Console.ReadKey();
+                SolutionCaptionView();
+
+                bool continueLoop = true;
+                while (continueLoop)
+                {
+                    int number = 0;
+                    Console.Write("\r\nPlease type the year: ");
+                    while (!Int32.TryParse(Console.ReadLine(), out number))
+                    {
+                        WarningMessageView("It is not valid number! Try again.");
+                        Console.Write("Please type the year: ");
+                    }
+                    string result = (number % 4 != 0) ? "not a leap year." : "a leap year.";
+                    Console.WriteLine($"{number} is {result}");
+                    continueLoop = ExitSolutionMenuView();
+                }
             }
             else if (exerciseNumber == 5 && lessonNumber == "Lesson7")
             {
-                Console.WriteLine("Rozwiazanie zadania 5 lekcja 7");
-                Console.ReadKey();
+                SolutionCaptionView();
+
+                bool continueLoop = true;
+                while (continueLoop)
+                {
+                    int age = 0;
+                    string result = "";
+                    Console.Write("\r\nPlease type the age: ");
+                    while (!Int32.TryParse(Console.ReadLine(), out age))
+                    {
+                        WarningMessageView("It is not valid number! Try again.");
+                        Console.Write("Please type the age: ");
+                    }
+                    
+                    if (age >= 35)
+                    {
+                        result = "you can become President, Prime Minister, Member of Parliament, and Senator.";
+                    }
+                    else if (age >= 30 && age < 35)
+                    {
+                        result = "you can become Prime Minister, Member of Parliament, and Senator.";
+                    }
+                    else if (age >= 21 && age < 30)
+                    {
+                        result = "you can become Prime Minister and Member of Parliament.";
+                    }
+                    else
+                        result = "you do not meet the age requirements for any of the positions.";
+
+                    Console.WriteLine($"At the age of {age}, {result}");
+                    continueLoop = ExitSolutionMenuView();
+                }
             }
             else if (exerciseNumber == 6 && lessonNumber == "Lesson7")
             {
-                Console.WriteLine("Rozwiazanie zadania 6 lekcja 7");
-                Console.ReadKey();
+                SolutionCaptionView();
+
+                bool continueLoop = true;
+                while (continueLoop)
+                {
+                    int height = 0;
+                    string result = "";
+                    Console.Write("\r\nPlease type your height: ");
+                    while (!Int32.TryParse(Console.ReadLine(), out height))
+                    {
+                        WarningMessageView("It is not valid number! Try again.");
+                        Console.Write("Please type your height: ");
+                    }
+
+                    if (height <= 140)
+                    {
+                        result = "you are dwarf :)";
+                    }
+                    else if (height > 140 && height <= 160)
+                    {
+                        result = "you are a bit of a taller dwarf :)";
+                    }
+                    else if (height > 160 && height <= 180)
+                    {
+                        result = "you are within the European average :)";
+                    }
+                    else if (height > 180 && height <= 200)
+                    {
+                        result = "you can call yourself tall.";
+                    }
+                    else
+                        result = "you can play in NBA :)";
+
+                    Console.WriteLine($"Having {height}cm, {result}");
+                    continueLoop = ExitSolutionMenuView();
+                }
             }
             else if (exerciseNumber == 7 && lessonNumber == "Lesson7")
             {
-                Console.WriteLine("Rozwiazanie zadania 7lekcja 7");
-                Console.ReadKey();
+                SolutionCaptionView();
+
+                bool continueLoop = true;
+                while (continueLoop)
+                {
+                    int number1 = 0;
+                    int number2 = 0;
+                    int number3 = 0;
+
+                    Console.Write("\r\nPlease write number 1: ");
+                    while (!Int32.TryParse(Console.ReadLine(), out number1))
+                    {
+                        WarningMessageView("It is not valid number! Try again.");
+                        Console.Write("Please write number 1: ");
+                    }
+                    Console.Write("Please write number 2: ");
+                    while (!Int32.TryParse(Console.ReadLine(), out number2))
+                    {
+                        WarningMessageView("It is not valid number! Try again.");
+                        Console.Write("Please write number 2: ");
+                    }
+                    Console.Write("Please write number 3: ");
+                    while (!Int32.TryParse(Console.ReadLine(), out number3))
+                    {
+                        WarningMessageView("It is not valid number! Try again.");
+                        Console.Write("Please write number 3: ");
+                    }                    
+                    int biggestNumber = number1;
+                    if (number2 > biggestNumber)
+                        biggestNumber = number2;
+                    if (number3 > biggestNumber)
+                        biggestNumber = number3;
+                    
+                    Console.WriteLine($"{biggestNumber} is the biggest number.");
+                    continueLoop = ExitSolutionMenuView();
+                }
             }
             else if (exerciseNumber == 8 && lessonNumber == "Lesson7")
             {
