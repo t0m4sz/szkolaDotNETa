@@ -4,12 +4,12 @@ namespace Week2
 {
     public class Program
     {
-        
+
         static void Main(string[] args)
         {
-            
-            MenuActionService actionService = new MenuActionService();        
-            Helpers.InitializeConsole();            
+
+            MenuActionService actionService = new MenuActionService();
+            Helpers.InitializeConsole();
             Helpers.InitializeMenu(actionService);
             bool warningFlag = false;
 
@@ -20,14 +20,14 @@ namespace Week2
                 int exerciseNumber = 0;
                
                 switch (actionChoice)
-                {                   
+                {
                     case 1:
                         while (true)
                         {
                             exerciseNumber = actionService.MenuActionsView("Lesson4", warningFlag);
                             warningFlag = false;
                             if (exerciseNumber > 0)
-                            {                                
+                            {
                                 actionService.ExerciseDescriptionView(exerciseNumber, "Lesson4");
                                 SolutionService.ShowExerciseSolution(exerciseNumber, "Lesson4");
                             }
@@ -67,7 +67,7 @@ namespace Week2
                                 break;
                             else
                                 warningFlag = true;
-                        }                        
+                        }
                         break;
                     case 4:
                         Environment.Exit(0);
@@ -79,10 +79,5 @@ namespace Week2
             }
         }
       
-
-        
-
-
     }
-
 }

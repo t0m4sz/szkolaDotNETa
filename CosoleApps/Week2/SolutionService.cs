@@ -10,7 +10,6 @@ namespace Week2
             Console.WriteLine("SOLUTION");
             Console.ForegroundColor = Helpers.TEXT_COLOR;
         }
-
         private static bool ExitSolutionMenuView()
         {
             Console.Write("\r\nPress 'a' key to run script again. \r\nPress any other key to return to previous menu :");
@@ -18,7 +17,7 @@ namespace Week2
             switch (choice.KeyChar)
             {
                 case 'a':
-                    return true;                    
+                    return true;
                 default:
                     return false;
             }
@@ -110,7 +109,7 @@ namespace Week2
                     name = Console.ReadLine();
                     while (string.IsNullOrEmpty(name))
                     {
-                        WarningMessageView("You didn't provide any info! Try again.");                        
+                        WarningMessageView("You didn't provide any info! Try again.");
                         Console.Write("What is your name?: ");
                         name = Console.ReadLine();
                     }
@@ -141,7 +140,7 @@ namespace Week2
                     Console.Write("What is your age in years: ");
                     while (!Int32.TryParse(Console.ReadLine(), out age))
                     {
-                        WarningMessageView("It is not valid number! Try again.");                        
+                        WarningMessageView("It is not valid number! Try again.");
                         Console.Write("What is your age in years: ");
                     }
                     Console.Write("What is your height: ");
@@ -174,7 +173,7 @@ namespace Week2
                     Console.Write("\r\nPlease write first number: ");
                     while (!Int32.TryParse(Console.ReadLine(), out number1))
                     {
-                        WarningMessageView("It is not valid number! Try again.");                        
+                        WarningMessageView("It is not valid number! Try again.");
                         Console.Write("Please write first number: ");
                     }
                     

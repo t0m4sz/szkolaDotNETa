@@ -9,8 +9,6 @@ namespace Week2
         public const ConsoleColor TEXT_COLOR = ConsoleColor.White;
         public const ConsoleColor WARNING_COLOR = ConsoleColor.Red;
         public const ConsoleColor SOLUTION_CAPTION_COLOR = ConsoleColor.Blue;
-
-
         public static void InitializeConsole()
         {
             Console.Clear();
@@ -18,7 +16,6 @@ namespace Week2
             Console.ForegroundColor = TEXT_COLOR;
             Console.WindowHeight = 50;
         }
-
         public static void InitializeMenu(MenuActionService actionService)
         {
             actionService.AddNewAction(1, " - Lesson 4", "Main");
@@ -59,9 +56,6 @@ namespace Week2
             actionService.AddNewAction(9, "Write a program that converts a decimal number into a binary number.\r\n", "Lesson8");
             actionService.AddNewAction(10, "Write a program that finds the smallest common multiple for given 2 numbers.\r\n", "Lesson8");
             actionService.AddNewAction(11, " - Back to main menu", "Lesson8");
-
         }
-
-
     }
 }

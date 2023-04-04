@@ -74,10 +74,10 @@ namespace Week2
                     Console.Write($"[{menuElement.Id}]");
                     Console.ForegroundColor = Helpers.TEXT_COLOR;
                     Console.WriteLine(menuElement.Description);
-                }                
-            }            
+                }
+            }
             else
-            {                
+            {
                 for (int i = 0; i < (menuList.Count - 1); i++)
                 {
                     Console.ForegroundColor = Helpers.EXERCISE_CAPTION_COLOR;
@@ -115,8 +115,8 @@ namespace Week2
                         return choiceAsNumber;
                     }
                     else return 0;
-                }                    
-                else return 0;  
+                }
+                else return 0;
             } 
             else return 0;
         }
