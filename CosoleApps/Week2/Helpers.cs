@@ -14,7 +14,7 @@ namespace Week2
             Console.Clear();
             Console.Title = "Szkola dotNETa - Week 2";
             Console.ForegroundColor = TEXT_COLOR;
-            Console.WindowHeight = 50;
+            //Console.WindowHeight = 50;
         }
         public static void InitializeMenu(MenuActionService actionService)
         {
