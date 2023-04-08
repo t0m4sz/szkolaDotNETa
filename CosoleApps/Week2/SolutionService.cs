@@ -364,8 +364,39 @@ namespace Week2
             }
             else if (exerciseNumber == 8 && lessonNumber == "Lesson7")
             {
-                Console.WriteLine("Rozwiazanie zadania 8 lekcja 7");
-                Console.ReadKey();
+                SolutionCaptionView();
+
+                bool continueLoop = true;
+                while (continueLoop)
+                {
+                    int mathResult = 0;
+                    int phisicsResult = 0;
+                    int chemistryResult = 0;
+
+                    Console.Write("\r\nPlease write math score: ");
+                    while (!Int32.TryParse(Console.ReadLine(), out mathResult))
+                    {
+                        WarningMessageView("It is not valid number! Try again.");
+                        Console.Write("Please write math score: ");
+                    }
+                    Console.Write("Please write physic score: ");
+                    while (!Int32.TryParse(Console.ReadLine(), out phisicsResult))
+                    {
+                        WarningMessageView("It is not valid number! Try again.");
+                        Console.Write("Please write physic score: ");
+                    }
+                    Console.Write("Please write chemistry score: ");
+                    while (!Int32.TryParse(Console.ReadLine(), out chemistryResult))
+                    {
+                        WarningMessageView("It is not valid number! Try again.");
+                        Console.Write("Please write chemistry score: ");
+                    }
+                    // TO DO: write checking logic here, total score above 180pt. or math and other score above 150pt
+                    // result: Candidate admitted to the recruitment process.
+
+                    Console.WriteLine();
+                    continueLoop = ExitSolutionMenuView();
+                }
             }
             else if (exerciseNumber == 9 && lessonNumber == "Lesson7")
             {
