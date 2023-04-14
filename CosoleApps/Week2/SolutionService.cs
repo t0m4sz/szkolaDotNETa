@@ -180,16 +180,12 @@ namespace Week2
                 bool continueLoop = true;
                 while (continueLoop)
                 {
-                    int number = 0;
-                    Console.Write("\r\nPlease type the number: ");
-                    while (!Int32.TryParse(Console.ReadLine(), out number))
-                    {
-                        WarningMessageView("It is not valid number! Try again.");
-                        Console.Write("Please type the number: ");
-                    }
-
+                    Console.WriteLine();
+                    int number = ReadIntFromInput("Please type the number: ");
+                    
                     string result = ( number % 2 != 0) ? "odd." : "even.";
                     Console.WriteLine($"{number} is {result}");
+                    
                     continueLoop = ExitSolutionMenuView();
                 }
             }
