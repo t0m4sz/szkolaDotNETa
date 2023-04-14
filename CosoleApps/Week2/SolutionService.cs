@@ -29,6 +29,25 @@ namespace Week2
             Console.WriteLine(message);
             Console.ForegroundColor = Helpers.TEXT_COLOR;
         }
+        private static int ReadIntFromInput(string inputMessage)
+        {
+            int value = 0;
+            bool isValid = false;
+            while (!isValid)
+            {
+                Console.Write(inputMessage);
+                isValid = Int32.TryParse(Console.ReadLine(), out value);
+                if (!isValid)
+                {
+                    WarningMessageView("It is not valid number! Try again.");
+                }
+            }
+            return value;
+        }
+        private static string ReadStringFromInput(string input)
+        {
+            string result = null;
+        }
         public static void ShowExerciseSolution(int exerciseNumber, string lessonNumber)
         {
 
