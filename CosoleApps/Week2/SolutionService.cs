@@ -210,15 +210,10 @@ namespace Week2
                 bool continueLoop = true;
                 while (continueLoop)
                 {
-                    int number = 0;
-                    Console.Write("\r\nPlease type the year: ");
-                    while (!Int32.TryParse(Console.ReadLine(), out number))
-                    {
-                        WarningMessageView("It is not valid number! Try again.");
-                        Console.Write("Please type the year: ");
-                    }
-                    string result = (number % 4 != 0) ? "not a leap year." : "a leap year.";
-                    Console.WriteLine($"{number} is {result}");
+                    Console.WriteLine();
+                    int year = ReadIntFromInput("Please type the year: ");
+                    string result = (year % 4 != 0) ? "not a leap year." : "a leap year.";
+                    Console.WriteLine($"{year} is {result}");
                     continueLoop = ExitSolutionMenuView();
                 }
             }
