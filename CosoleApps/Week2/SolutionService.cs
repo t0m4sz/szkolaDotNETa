@@ -82,13 +82,6 @@ namespace Week2
             if (exerciseNumber == 1 && lessonNumber == "Lesson4")
             {
                 SolutionCaptionView();
-
-                int liczba = ReadIntFromInput("Podaj inta: ");
-                Console.WriteLine($"Twoja liczba to: {liczba}");
-
-                string text = ReadStringFromInput("Podaj stringa: ");
-                Console.WriteLine($"Twój string to: {text}");
-
                 Console.WriteLine("There is no console output. Only code to review.");
                 Console.ForegroundColor = Helpers.CODE_COLOR;
                 Console.WriteLine(" \r\nstring name;\r\nstring surname;\r\nint age;\r\nchar sex;\r\nint personalIdNumber;\r\nstring employeeId;");
@@ -119,19 +112,13 @@ namespace Week2
                 bool continueLoop = true;
                 while (continueLoop)
                 {
-                    double a;
-                    double b;
-                    double diagonal;
-                    Console.Write("\r\nGive the length of side A of the rectangle: ");
-                    Double.TryParse(Console.ReadLine(), out a);
-                    Console.Write("Give the length of side B of the rectangle: ");
-                    Double.TryParse(Console.ReadLine(), out b);
-
-                    diagonal = Math.Sqrt(Math.Pow(a, 2) + Math.Pow(b, 2));
+                    Console.WriteLine();
+                    double a = ReadDoubleFromInput("Give the length of side A of the rectangle: ");
+                    double b = ReadDoubleFromInput("Give the length of side B of the rectangle: "); ;
+                    double diagonal = Math.Sqrt(Math.Pow(a, 2) + Math.Pow(b, 2));
 
                     string result = diagonal.ToString("F2");
                     Console.WriteLine($"Your diagonal length is: {result}");
-
                     continueLoop = ExitSolutionMenuView();
                 }
             }
@@ -152,66 +139,19 @@ namespace Week2
                 bool continueLoop = true;
                 while (continueLoop)
                 {
-                    string name = string.Empty;
-                    string lastName = string.Empty;
-                    string phoneNumber = string.Empty;
-                    string email = string.Empty;
-                    double height = 0;
-                    double weight = 0;
-                    int age = 0;
+                    Console.WriteLine();
 
-                    Console.Write("\r\nWhat is your name: ");
-                    name = Console.ReadLine();
-                    while (string.IsNullOrEmpty(name))
-                    {
-                        WarningMessageView("You didn't provide any info! Try again.");
-                        Console.Write("What is your name?: ");
-                        name = Console.ReadLine();
-                    }
-                    Console.Write("What is your last name: ");
-                    lastName = Console.ReadLine();
-                    while (string.IsNullOrEmpty(lastName))
-                    {
-                        WarningMessageView("You didn't provide any info! Try again.");
-                        Console.Write("What is your last name?: ");
-                        lastName = Console.ReadLine();
-                    }
-                    Console.Write("Your phone number: ");
-                    phoneNumber = Console.ReadLine();
-                    while (string.IsNullOrEmpty(phoneNumber))
-                    {
-                        WarningMessageView("You didn't provide any info! Try again.");
-                        Console.Write("What is your phone number?: ");
-                        phoneNumber = Console.ReadLine();
-                    }
-                    Console.Write("Type your email address: ");
-                    email = Console.ReadLine();
-                    while (string.IsNullOrEmpty(email))
-                    {
-                        WarningMessageView("You didn't provide any info! Try again.");
-                        Console.Write("What is your email?: ");
-                        email = Console.ReadLine();
-                    }
-                    Console.Write("What is your age in years: ");
-                    while (!Int32.TryParse(Console.ReadLine(), out age))
-                    {
-                        WarningMessageView("It is not valid number! Try again.");
-                        Console.Write("What is your age in years: ");
-                    }
-                    Console.Write("What is your height: ");
-                    while (!Double.TryParse(Console.ReadLine(), out height))
-                    {
-                        WarningMessageView("It is not valid number! Try again.");
-                        Console.Write("What is your height in cm: ");
-                    }
-                    Console.Write("What is your weight in kg: ");
-                    while (!Double.TryParse(Console.ReadLine(), out weight))
-                    {
-                        WarningMessageView("It is not valid number! Try again.");
-                        Console.Write("What is your weight in kg: ");
-                    }
+                    string name = ReadStringFromInput("What is your name: ");
+                    string lastName = ReadStringFromInput("What is your last name: ");
+                    string phoneNumber = ReadStringFromInput("Your phone number: ");
+                    string email = ReadStringFromInput("Type your email address: ");
+                    int age = ReadIntFromInput("What is your age in years: ");
+                    double height = ReadDoubleFromInput("What is your height: ");
+                    double weight = ReadDoubleFromInput("What is your weight in kg: ");
+                                        
                     Console.WriteLine("\r\nBelow information you provided:");
                     Console.Write($"Your name is {name} {lastName}.\r\nYou are {age} years old.\r\nYour phone number is {phoneNumber}.\r\nYour email address is {email}.\r\nYou are {height}cm tall and your weight is {weight}kg.\r\n");
+                    
                     continueLoop = ExitSolutionMenuView();
                 }
             }
@@ -222,24 +162,12 @@ namespace Week2
                 bool continueLoop = true;
                 while (continueLoop)
                 {
-                    int number1 = 0;
-                    int number2 = 0;
-
-                    Console.Write("\r\nPlease write first number: ");
-                    while (!Int32.TryParse(Console.ReadLine(), out number1))
-                    {
-                        WarningMessageView("It is not valid number! Try again.");
-                        Console.Write("Please write first number: ");
-                    }
-                    
-                    Console.Write("Please write second number: ");
-                    while (!Int32.TryParse(Console.ReadLine(), out number2))
-                    {
-                        WarningMessageView("It is not valid number! Try again.");
-                        Console.Write("Please write second number: ");
-                    }
+                    Console.WriteLine();
+                    int number1 = ReadIntFromInput("Please write first number: ");
+                    int number2 = ReadIntFromInput("Please write second number: ");
+                                        
                     string result = (number1 == number2) ? "Numbers are equal" : "Numbers are not equal"; 
-                    Console.WriteLine(result);
+                    Console.WriteLine(result);                    
                     continueLoop = ExitSolutionMenuView();
                 }                
             }
@@ -250,16 +178,11 @@ namespace Week2
                 bool continueLoop = true;
                 while (continueLoop)
                 {
-                    int number = 0;
-                    Console.Write("\r\nPlease type the number: ");
-                    while (!Int32.TryParse(Console.ReadLine(), out number))
-                    {
-                        WarningMessageView("It is not valid number! Try again.");
-                        Console.Write("Please type the number: ");
-                    }
-
+                    Console.WriteLine();
+                    int number = ReadIntFromInput("Please type the number: ");
+                    
                     string result = ( number % 2 != 0) ? "odd." : "even.";
-                    Console.WriteLine($"{number} is {result}");
+                    Console.WriteLine($"{number} is {result}");                    
                     continueLoop = ExitSolutionMenuView();
                 }
             }
@@ -270,18 +193,13 @@ namespace Week2
                 bool continueLoop = true;
                 while (continueLoop)
                 {
-                    int number = 0;
-                    Console.Write("\r\nPlease type the number: ");
-                    while (!Int32.TryParse(Console.ReadLine(), out number))
-                    {
-                        WarningMessageView("It is not valid number! Try again.");
-                        Console.Write("Please type the number: ");
-                    }
-
+                    Console.WriteLine();
+                    int number = ReadIntFromInput("Please type the number: ");
                     string result = (number > 0) ? "positive number."
                         : (number < 0) ? "negative number."
                         : "just zero :)";
                     Console.WriteLine($"{number} is {result}");
+
                     continueLoop = ExitSolutionMenuView();
                 }
             }
@@ -292,15 +210,10 @@ namespace Week2
                 bool continueLoop = true;
                 while (continueLoop)
                 {
-                    int number = 0;
-                    Console.Write("\r\nPlease type the year: ");
-                    while (!Int32.TryParse(Console.ReadLine(), out number))
-                    {
-                        WarningMessageView("It is not valid number! Try again.");
-                        Console.Write("Please type the year: ");
-                    }
-                    string result = (number % 4 != 0) ? "not a leap year." : "a leap year.";
-                    Console.WriteLine($"{number} is {result}");
+                    Console.WriteLine();
+                    int year = ReadIntFromInput("Please type the year: ");
+                    string result = (year % 4 != 0) ? "not a leap year." : "a leap year.";
+                    Console.WriteLine($"{year} is {result}");
                     continueLoop = ExitSolutionMenuView();
                 }
             }
@@ -311,15 +224,10 @@ namespace Week2
                 bool continueLoop = true;
                 while (continueLoop)
                 {
-                    int age = 0;
+                    Console.WriteLine();
+                    int age = ReadIntFromInput("Please type the age: ");
                     string result = "";
-                    Console.Write("\r\nPlease type the age: ");
-                    while (!Int32.TryParse(Console.ReadLine(), out age))
-                    {
-                        WarningMessageView("It is not valid number! Try again.");
-                        Console.Write("Please type the age: ");
-                    }
-                    
+                                        
                     if (age >= 35)
                     {
                         result = "you can become President, Prime Minister, Member of Parliament, and Senator.";
@@ -346,15 +254,10 @@ namespace Week2
                 bool continueLoop = true;
                 while (continueLoop)
                 {
-                    int height = 0;
+                    Console.WriteLine();
+                    int height = ReadIntFromInput("Please type your height in cm: ");
                     string result = "";
-                    Console.Write("\r\nPlease type your height: ");
-                    while (!Int32.TryParse(Console.ReadLine(), out height))
-                    {
-                        WarningMessageView("It is not valid number! Try again.");
-                        Console.Write("Please type your height: ");
-                    }
-
+                    
                     if (height <= 140)
                     {
                         result = "you are dwarf :)";
@@ -385,28 +288,11 @@ namespace Week2
                 bool continueLoop = true;
                 while (continueLoop)
                 {
-                    int number1 = 0;
-                    int number2 = 0;
-                    int number3 = 0;
-
-                    Console.Write("\r\nPlease write number 1: ");
-                    while (!Int32.TryParse(Console.ReadLine(), out number1))
-                    {
-                        WarningMessageView("It is not valid number! Try again.");
-                        Console.Write("Please write number 1: ");
-                    }
-                    Console.Write("Please write number 2: ");
-                    while (!Int32.TryParse(Console.ReadLine(), out number2))
-                    {
-                        WarningMessageView("It is not valid number! Try again.");
-                        Console.Write("Please write number 2: ");
-                    }
-                    Console.Write("Please write number 3: ");
-                    while (!Int32.TryParse(Console.ReadLine(), out number3))
-                    {
-                        WarningMessageView("It is not valid number! Try again.");
-                        Console.Write("Please write number 3: ");
-                    }                    
+                    Console.WriteLine();
+                    int number1 = ReadIntFromInput("Please write number 1: ");
+                    int number2 = ReadIntFromInput("Please write number 2: ");
+                    int number3 = ReadIntFromInput("Please write number 3: ");
+                 
                     int biggestNumber = number1;
                     if (number2 > biggestNumber)
                         biggestNumber = number2;
