@@ -67,13 +67,6 @@ namespace Week2
             if (exerciseNumber == 1 && lessonNumber == "Lesson4")
             {
                 SolutionCaptionView();
-
-                int liczba = ReadIntFromInput("Podaj inta: ");
-                Console.WriteLine($"Twoja liczba to: {liczba}");
-
-                string text = ReadStringFromInput("Podaj stringa: ");
-                Console.WriteLine($"Twój string to: {text}");
-
                 Console.WriteLine("There is no console output. Only code to review.");
                 Console.ForegroundColor = Helpers.CODE_COLOR;
                 Console.WriteLine(" \r\nstring name;\r\nstring surname;\r\nint age;\r\nchar sex;\r\nint personalIdNumber;\r\nstring employeeId;");
