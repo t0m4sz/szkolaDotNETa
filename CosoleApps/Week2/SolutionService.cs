@@ -408,38 +408,20 @@ namespace Week2
 
                 bool continueLoop = true;
                 while (continueLoop)
-                {
-                    int mathScore = 0;
-                    int physicsScore= 0;
-                    int chemistryScore = 0;
-
-                    Console.Write("\r\nPlease write math score: ");
-                    while (!Int32.TryParse(Console.ReadLine(), out mathScore))
-                    {
-                        WarningMessageView("It is not valid number! Try again.");
-                        Console.Write("Please write math score: ");
-                    }
-                    Console.Write("Please write physic score: ");
-                    while (!Int32.TryParse(Console.ReadLine(), out physicsScore))
-                    {
-                        WarningMessageView("It is not valid number! Try again.");
-                        Console.Write("Please write physic score: ");
-                    }
-                    Console.Write("Please write chemistry score: ");
-                    while (!Int32.TryParse(Console.ReadLine(), out chemistryScore))
-                    {
-                        WarningMessageView("It is not valid number! Try again.");
-                        Console.Write("Please write chemistry score: ");
-                    }
-
-                    int totalScore = mathScore + physicsScore + chemistryScore;
-                    int result2 = mathScore + physicsScore;
-                    int result1 = mathScore + chemistryScore;
-
-                    // TO DO: write checking logic here, total score above 180pt. or math and other score above 150pt
-                    // result: Candidate admitted to the recruitment process.
-
+                {                    
                     Console.WriteLine();
+                    int mathScore = ReadIntFromInput("Please write math score: ");
+                    int physicsScore= ReadIntFromInput("Please write physic score: ");
+                    int chemistryScore = ReadIntFromInput("Please write chemistry score: ");
+
+                    if ((mathScore + physicsScore + chemistryScore) > 180 || (mathScore + physicsScore) >= 150 || (mathScore + chemistryScore >= 150))
+                    {
+                        Console.WriteLine("Candidate admitted to the recruitment process.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Candidate not admitted to the recruitment process.");
+                    }
                     continueLoop = ExitSolutionMenuView();
                 }
             }
