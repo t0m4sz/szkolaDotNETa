@@ -288,28 +288,11 @@ namespace Week2
                 bool continueLoop = true;
                 while (continueLoop)
                 {
-                    int number1 = 0;
-                    int number2 = 0;
-                    int number3 = 0;
-
-                    Console.Write("\r\nPlease write number 1: ");
-                    while (!Int32.TryParse(Console.ReadLine(), out number1))
-                    {
-                        WarningMessageView("It is not valid number! Try again.");
-                        Console.Write("Please write number 1: ");
-                    }
-                    Console.Write("Please write number 2: ");
-                    while (!Int32.TryParse(Console.ReadLine(), out number2))
-                    {
-                        WarningMessageView("It is not valid number! Try again.");
-                        Console.Write("Please write number 2: ");
-                    }
-                    Console.Write("Please write number 3: ");
-                    while (!Int32.TryParse(Console.ReadLine(), out number3))
-                    {
-                        WarningMessageView("It is not valid number! Try again.");
-                        Console.Write("Please write number 3: ");
-                    }                    
+                    Console.WriteLine();
+                    int number1 = ReadIntFromInput("Please write number 1: ");
+                    int number2 = ReadIntFromInput("Please write number 2: ");
+                    int number3 = ReadIntFromInput("Please write number 3: ");
+                 
                     int biggestNumber = number1;
                     if (number2 > biggestNumber)
                         biggestNumber = number2;
