@@ -43,11 +43,23 @@ namespace Week2
             }
             return value;
         }
-        private static string ReadStringFromInput(string input)
+        private static string ReadStringFromInput(string inputMessage)
         {
-            string result = null;
+            string inputText = "";
+            bool isEmpty = true;
+            while (isEmpty)
+            {
+                Console.Write(inputMessage);
+                inputText = Console.ReadLine();
+                isEmpty = String.IsNullOrEmpty(inputText);
+                if (isEmpty)
+                {
+                    WarningMessageView("You didn't provide any info! Try again.");
+                }
+            }
+            return inputText;
         }
-        public static void ShowExerciseSolution(int exerciseNumber, string lessonNumber)
+    public static void ShowExerciseSolution(int exerciseNumber, string lessonNumber)
         {
 
             if (exerciseNumber == 1 && lessonNumber == "Lesson4")
