@@ -112,15 +112,10 @@ namespace Week2
                 bool continueLoop = true;
                 while (continueLoop)
                 {
-                    double a;
-                    double b;
-                    double diagonal;
-                    Console.Write("\r\nGive the length of side A of the rectangle: ");
-                    Double.TryParse(Console.ReadLine(), out a);
-                    Console.Write("Give the length of side B of the rectangle: ");
-                    Double.TryParse(Console.ReadLine(), out b);
-
-                    diagonal = Math.Sqrt(Math.Pow(a, 2) + Math.Pow(b, 2));
+                    Console.WriteLine();
+                    double a = ReadDoubleFromInput("Give the length of side A of the rectangle: ");
+                    double b = ReadDoubleFromInput("Give the length of side B of the rectangle: "); ;
+                    double diagonal = Math.Sqrt(Math.Pow(a, 2) + Math.Pow(b, 2));
 
                     string result = diagonal.ToString("F2");
                     Console.WriteLine($"Your diagonal length is: {result}");
