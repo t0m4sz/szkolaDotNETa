@@ -45,6 +45,21 @@ namespace Week2
             }
             return value;
         }
+        private static double ReadDoubleFromInput(string inputMessage)
+        {
+            double value = 0;
+            bool isValid = false;
+            while (!isValid)
+            {
+                Console.Write(inputMessage);
+                isValid = Double.TryParse(Console.ReadLine(), out value);
+                if (!isValid)
+                {
+                    WarningMessageView("It is not valid number! Try again.");
+                }
+            }
+            return value;
+        }
         private static string ReadStringFromInput(string inputMessage)
         {
             string inputText = "";
