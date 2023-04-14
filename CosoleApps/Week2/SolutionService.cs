@@ -254,15 +254,10 @@ namespace Week2
                 bool continueLoop = true;
                 while (continueLoop)
                 {
-                    int height = 0;
+                    Console.WriteLine();
+                    int height = ReadIntFromInput("Please type your height: ");
                     string result = "";
-                    Console.Write("\r\nPlease type your height: ");
-                    while (!Int32.TryParse(Console.ReadLine(), out height))
-                    {
-                        WarningMessageView("It is not valid number! Try again.");
-                        Console.Write("Please type your height: ");
-                    }
-
+                    
                     if (height <= 140)
                     {
                         result = "you are dwarf :)";
