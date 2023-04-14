@@ -119,7 +119,6 @@ namespace Week2
 
                     string result = diagonal.ToString("F2");
                     Console.WriteLine($"Your diagonal length is: {result}");
-
                     continueLoop = ExitSolutionMenuView();
                 }
             }
@@ -168,8 +167,7 @@ namespace Week2
                     int number2 = ReadIntFromInput("Please write second number: ");
                                         
                     string result = (number1 == number2) ? "Numbers are equal" : "Numbers are not equal"; 
-                    Console.WriteLine(result);
-                    
+                    Console.WriteLine(result);                    
                     continueLoop = ExitSolutionMenuView();
                 }                
             }
@@ -184,8 +182,7 @@ namespace Week2
                     int number = ReadIntFromInput("Please type the number: ");
                     
                     string result = ( number % 2 != 0) ? "odd." : "even.";
-                    Console.WriteLine($"{number} is {result}");
-                    
+                    Console.WriteLine($"{number} is {result}");                    
                     continueLoop = ExitSolutionMenuView();
                 }
             }
@@ -196,18 +193,13 @@ namespace Week2
                 bool continueLoop = true;
                 while (continueLoop)
                 {
-                    int number = 0;
-                    Console.Write("\r\nPlease type the number: ");
-                    while (!Int32.TryParse(Console.ReadLine(), out number))
-                    {
-                        WarningMessageView("It is not valid number! Try again.");
-                        Console.Write("Please type the number: ");
-                    }
-
+                    Console.WriteLine();
+                    int number = ReadIntFromInput("Please type the number: ");
                     string result = (number > 0) ? "positive number."
                         : (number < 0) ? "negative number."
                         : "just zero :)";
                     Console.WriteLine($"{number} is {result}");
+
                     continueLoop = ExitSolutionMenuView();
                 }
             }
