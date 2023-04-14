@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Net.NetworkInformation;
+using System.Xml.Linq;
 
 namespace Week2
 {
@@ -65,6 +67,13 @@ namespace Week2
             if (exerciseNumber == 1 && lessonNumber == "Lesson4")
             {
                 SolutionCaptionView();
+
+                int liczba = ReadIntFromInput("Podaj inta: ");
+                Console.WriteLine($"Twoja liczba to: {liczba}");
+
+                string text = ReadStringFromInput("Podaj stringa: ");
+                Console.WriteLine($"Twój string to: {text}");
+
                 Console.WriteLine("There is no console output. Only code to review.");
                 Console.ForegroundColor = Helpers.CODE_COLOR;
                 Console.WriteLine(" \r\nstring name;\r\nstring surname;\r\nint age;\r\nchar sex;\r\nint personalIdNumber;\r\nstring employeeId;");
@@ -395,8 +404,26 @@ namespace Week2
             }
             else if (exerciseNumber == 8 && lessonNumber == "Lesson7")
             {
-                Console.WriteLine("Rozwiazanie zadania 8 lekcja 7");
-                Console.ReadKey();
+                SolutionCaptionView();
+
+                bool continueLoop = true;
+                while (continueLoop)
+                {                    
+                    Console.WriteLine();
+                    int mathScore = ReadIntFromInput("Please write math score: ");
+                    int physicsScore= ReadIntFromInput("Please write physic score: ");
+                    int chemistryScore = ReadIntFromInput("Please write chemistry score: ");
+
+                    if ((mathScore + physicsScore + chemistryScore) > 180 || (mathScore + physicsScore) >= 150 || (mathScore + chemistryScore >= 150))
+                    {
+                        Console.WriteLine("Candidate admitted to the recruitment process.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Candidate not admitted to the recruitment process.");
+                    }
+                    continueLoop = ExitSolutionMenuView();
+                }
             }
             else if (exerciseNumber == 9 && lessonNumber == "Lesson7")
             {
