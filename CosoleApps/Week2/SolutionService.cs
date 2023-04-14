@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net.NetworkInformation;
+using System.Xml.Linq;
 
 namespace Week2
 {
@@ -44,16 +45,35 @@ namespace Week2
             }
             return value;
         }
-        private static string ReadStringFromInput(string input)
+        private static string ReadStringFromInput(string inputMessage)
         {
-            string result = null;
+            string inputText = "";
+            bool isEmpty = true;
+            while (isEmpty)
+            {
+                Console.Write(inputMessage);
+                inputText = Console.ReadLine();
+                isEmpty = String.IsNullOrEmpty(inputText);
+                if (isEmpty)
+                {
+                    WarningMessageView("You didn't provide any info! Try again.");
+                }
+            }
+            return inputText;
         }
-        public static void ShowExerciseSolution(int exerciseNumber, string lessonNumber)
+    public static void ShowExerciseSolution(int exerciseNumber, string lessonNumber)
         {
 
             if (exerciseNumber == 1 && lessonNumber == "Lesson4")
             {
                 SolutionCaptionView();
+
+                int liczba = ReadIntFromInput("Podaj inta: ");
+                Console.WriteLine($"Twoja liczba to: {liczba}");
+
+                string text = ReadStringFromInput("Podaj stringa: ");
+                Console.WriteLine($"Twój string to: {text}");
+
                 Console.WriteLine("There is no console output. Only code to review.");
                 Console.ForegroundColor = Helpers.CODE_COLOR;
                 Console.WriteLine(" \r\nstring name;\r\nstring surname;\r\nint age;\r\nchar sex;\r\nint personalIdNumber;\r\nstring employeeId;");
