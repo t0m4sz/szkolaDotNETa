@@ -224,15 +224,10 @@ namespace Week2
                 bool continueLoop = true;
                 while (continueLoop)
                 {
-                    int age = 0;
+                    Console.WriteLine();
+                    int age = ReadIntFromInput("Please type the age: ");
                     string result = "";
-                    Console.Write("\r\nPlease type the age: ");
-                    while (!Int32.TryParse(Console.ReadLine(), out age))
-                    {
-                        WarningMessageView("It is not valid number! Try again.");
-                        Console.Write("Please type the age: ");
-                    }
-                    
+                                        
                     if (age >= 35)
                     {
                         result = "you can become President, Prime Minister, Member of Parliament, and Senator.";
