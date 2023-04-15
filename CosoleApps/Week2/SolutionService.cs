@@ -76,16 +76,24 @@ namespace Week2
             }
             return inputText;
         }
-    public static void ShowExerciseSolution(int exerciseNumber, string lessonNumber)
+        private static void WriteColorText(string text, ConsoleColor colour)
+        {
+            Console.ForegroundColor = colour;
+            Console.WriteLine(text);
+            Console.ForegroundColor = Helpers.TEXT_COLOR;
+
+        }
+        public static void ShowExerciseSolution(int exerciseNumber, string lessonNumber)
         {
 
             if (exerciseNumber == 1 && lessonNumber == "Lesson4")
             {
                 SolutionCaptionView();
                 Console.WriteLine("There is no console output. Only code to review.");
-                Console.ForegroundColor = Helpers.CODE_COLOR;
-                Console.WriteLine(" \r\nstring name;\r\nstring surname;\r\nint age;\r\nchar sex;\r\nint personalIdNumber;\r\nstring employeeId;");
-                Console.ForegroundColor = Helpers.TEXT_COLOR;
+                WriteColorText(" \r\nstring name;\r\nstring surname;\r\nint age;\r\nchar sex;\r\nint personalIdNumber;\r\nstring employeeId;", Helpers.CODE_COLOR);
+                //Console.ForegroundColor = Helpers.CODE_COLOR;
+                //Console.WriteLine(" \r\nstring name;\r\nstring surname;\r\nint age;\r\nchar sex;\r\nint personalIdNumber;\r\nstring employeeId;");
+                //Console.ForegroundColor = Helpers.TEXT_COLOR;
                 Console.WriteLine("\r\nPress any key to return to the previous menu...");
                 Console.ReadKey();
             }
@@ -127,7 +135,7 @@ namespace Week2
                 SolutionCaptionView();
                 Console.WriteLine("There is no console output. Only code to review.");
                 Console.ForegroundColor = Helpers.CODE_COLOR;
-                Console.WriteLine("\r\nint numberI = 10;\r\nstring text = \"Szkoła Dotneta\";\r\ndouble numberD = 12.5;\r\n");
+                Console.WriteLine("\r\nint number = 10;\r\nstring text = \"Szkoła Dotneta\";\r\ndouble numberD = 12.5;\r\n");
                 Console.ForegroundColor = Helpers.TEXT_COLOR;
                 Console.WriteLine("\r\nPress any key to return to the previous menu...");
                 Console.ReadKey();
