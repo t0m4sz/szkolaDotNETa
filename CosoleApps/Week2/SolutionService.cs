@@ -319,10 +319,8 @@ namespace Week2
                     {
                         Console.WriteLine("Candidate admitted to the recruitment process.");
                     }
-                    else
-                    {
-                        Console.WriteLine("Candidate not admitted to the recruitment process.");
-                    }
+                    else Console.WriteLine("Candidate not admitted to the recruitment process.");
+                    
                     continueLoop = ExitSolutionMenuView();
                 }
             }
@@ -348,8 +346,25 @@ namespace Week2
             }
             else if (exerciseNumber == 10 && lessonNumber == "Lesson7")
             {
-                Console.WriteLine("Rozwiazanie zadania 10 lekcja 7");
-                Console.ReadKey();
+                SolutionCaptionView();
+
+                bool continueLoop = true;
+                while (continueLoop)
+                {
+                    Console.WriteLine();
+                    int a = ReadIntFromInput("Please enter length A: ");
+                    int b = ReadIntFromInput("Please enter length B: ");
+                    int c = ReadIntFromInput("Please enter length C: ");
+
+                    if ( a > 0 && b > 0 && c > 0)
+                    {
+                        if (a + b > c && b + c > a && c + a > b) Console.WriteLine("A triangle can be created!");
+                        else Console.WriteLine("Sorry, but a triangle cannot be created!");
+                    }
+                    else Console.WriteLine("Sorry, but one of the lengths can't be zero or negative!");
+
+                    continueLoop = ExitSolutionMenuView();
+                }
             }
             else if (exerciseNumber == 11 && lessonNumber == "Lesson7")
             {
