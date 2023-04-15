@@ -436,8 +436,19 @@ namespace Week2
             }
             else if (exerciseNumber == 13 && lessonNumber == "Lesson7")
             {
-                Console.WriteLine("Rozwiazanie zadania 13 lekcja 7");
-                Console.ReadKey();
+                SolutionCaptionView();
+
+                bool continueLoop = true;
+                while (continueLoop)
+                {
+                    Console.WriteLine();
+                    int a = ReadIntFromInput("Please enter first number: ");
+                    int b = ReadIntFromInput("Please enter second number: ");
+                    
+
+
+                    continueLoop = ExitSolutionMenuView();
+                }
             }
             else if (exerciseNumber == 1 && lessonNumber == "Lesson8")
             {
