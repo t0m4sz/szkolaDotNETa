@@ -81,7 +81,6 @@ namespace Week2
             Console.ForegroundColor = colour;
             Console.WriteLine(text);
             Console.ForegroundColor = Helpers.TEXT_COLOR;
-
         }
         public static void ShowExerciseSolution(int exerciseNumber, string lessonNumber)
         {
@@ -91,9 +90,7 @@ namespace Week2
                 SolutionCaptionView();
                 Console.WriteLine("There is no console output. Only code to review.");
                 WriteColorText(" \r\nstring name;\r\nstring surname;\r\nint age;\r\nchar sex;\r\nint personalIdNumber;\r\nstring employeeId;", Helpers.CODE_COLOR);
-                //Console.ForegroundColor = Helpers.CODE_COLOR;
-                //Console.WriteLine(" \r\nstring name;\r\nstring surname;\r\nint age;\r\nchar sex;\r\nint personalIdNumber;\r\nstring employeeId;");
-                //Console.ForegroundColor = Helpers.TEXT_COLOR;
+                
                 Console.WriteLine("\r\nPress any key to return to the previous menu...");
                 Console.ReadKey();
             }
@@ -101,12 +98,8 @@ namespace Week2
             {
                 SolutionCaptionView();
                 Console.WriteLine("Code to review.");
-                Console.ForegroundColor = Helpers.CODE_COLOR;
-                Console.WriteLine("\r\nchar a = \'a\';\r\nchar b = \'b\';\r\nchar c = \'c\';");
-                Console.WriteLine("Console.WriteLine($\"{c} {b} {a}\");\r\n");
-                Console.ForegroundColor = Helpers.SOLUTION_CAPTION_COLOR;
-                Console.WriteLine("Console output:");
-                Console.ForegroundColor = Helpers.TEXT_COLOR;
+                WriteColorText("\r\nchar a = \'a\';\r\nchar b = \'b\';\r\nchar c = \'c\';\r\nConsole.WriteLine($\"{c} {b} {a}\");\r\n", Helpers.CODE_COLOR);
+                WriteColorText("Console output:", Helpers.SOLUTION_CAPTION_COLOR);
 
                 char a = 'a'; char b = 'b'; char c = 'c';
                 Console.WriteLine($"{c} {b} {a}");
@@ -134,9 +127,8 @@ namespace Week2
             {
                 SolutionCaptionView();
                 Console.WriteLine("There is no console output. Only code to review.");
-                Console.ForegroundColor = Helpers.CODE_COLOR;
-                Console.WriteLine("\r\nint number = 10;\r\nstring text = \"Szkoła Dotneta\";\r\ndouble numberD = 12.5;\r\n");
-                Console.ForegroundColor = Helpers.TEXT_COLOR;
+                WriteColorText("\r\nint number = 10;\r\nstring text = \"Szkoła Dotneta\";\r\ndouble numberD = 12.5;\r\n", Helpers.CODE_COLOR);
+
                 Console.WriteLine("\r\nPress any key to return to the previous menu...");
                 Console.ReadKey();
             }
