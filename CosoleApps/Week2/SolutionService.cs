@@ -399,8 +399,35 @@ namespace Week2
             }
             else if (exerciseNumber == 12 && lessonNumber == "Lesson7")
             {
-                Console.WriteLine("Rozwiazanie zadania 12 lekcja 7");
-                Console.ReadKey();
+                SolutionCaptionView();
+
+                bool continueLoop = true;
+                while (continueLoop)
+                {
+                    Console.WriteLine();
+                    int numberDay = ReadIntFromInput("Please enter the number of the day (1-7): ");
+                    string textDay = "";
+
+                    if (numberDay >= 1 && numberDay <= 7)
+                    {
+                        if (numberDay == 1) textDay = "Monday";
+                        else if (numberDay == 2) textDay = "Tuesday";
+                        else if (numberDay == 3) textDay = "Wednesday";
+                        else if (numberDay == 4) textDay = "Thursday";
+                        else if (numberDay == 5) textDay = "Friday";
+                        else if (numberDay == 6) textDay = "Saturday";
+                        else if (numberDay == 7) textDay = "Sunday";
+
+                        Console.WriteLine($"Your day is {textDay}!");
+                    }
+                    else
+                    {
+                        WriteColorText("Sorry, but it is not a proper day number!", Helpers.WARNING_COLOR);
+                        continueLoop = true;
+                        continue;
+                    }
+                    continueLoop = ExitSolutionMenuView();
+                }
             }
             else if (exerciseNumber == 13 && lessonNumber == "Lesson7")
             {
