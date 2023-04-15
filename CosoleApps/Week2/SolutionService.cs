@@ -379,13 +379,15 @@ namespace Week2
 
                     if (numberGrade >= 1 && numberGrade <= 6)
                     {
-                        if (numberGrade == 1) textGrade = "Poor";
-                        else if (numberGrade == 2) textGrade = "Pass";
-                        else if (numberGrade == 3) textGrade = "Satisfactory";
-                        else if (numberGrade == 4) textGrade = "Good";
-                        else if (numberGrade == 5) textGrade = "Very Good";
-                        else if (numberGrade == 6) textGrade = "Excellent";
-
+                        switch (numberGrade)
+                        {
+                            case 1: textGrade = "Poor"; break;
+                            case 2: textGrade = "Pass"; break;
+                            case 3: textGrade = "Satisfactory"; break;
+                            case 4: textGrade = "Good"; break;
+                            case 5: textGrade = "Very Good"; break;
+                            case 6: textGrade = "Excellent"; break;
+                        }
                         Console.WriteLine($"Your grade is {textGrade}!");                        
                     }
                     else
