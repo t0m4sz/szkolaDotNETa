@@ -90,7 +90,7 @@ namespace Week2
                 SolutionCaptionView();
                 Console.WriteLine("There is no console output. Only code to review.");
                 WriteColorText(" \r\nstring name;\r\nstring surname;\r\nint age;\r\nchar sex;\r\nint personalIdNumber;\r\nstring employeeId;", Helpers.CODE_COLOR);
-                
+
                 Console.WriteLine("\r\nPress any key to return to the previous menu...");
                 Console.ReadKey();
             }
@@ -146,30 +146,30 @@ namespace Week2
                     string phoneNumber = ReadStringFromInput("Your phone number: ");
                     string email = ReadStringFromInput("Type your email address: ");
                     int age = ReadIntFromInput("What is your age in years: ");
-                    double height = ReadDoubleFromInput("What is your height: ");
+                    int height = ReadIntFromInput("What is your height in cm: ");
                     double weight = ReadDoubleFromInput("What is your weight in kg: ");
-                                        
+
                     Console.WriteLine("\r\nBelow information you provided:");
                     Console.Write($"Your name is {name} {lastName}.\r\nYou are {age} years old.\r\nYour phone number is {phoneNumber}.\r\nYour email address is {email}.\r\nYou are {height}cm tall and your weight is {weight}kg.\r\n");
-                    
+
                     continueLoop = ExitSolutionMenuView();
                 }
             }
             else if (exerciseNumber == 1 && lessonNumber == "Lesson7")
             {
                 SolutionCaptionView();
-                
+
                 bool continueLoop = true;
                 while (continueLoop)
                 {
                     Console.WriteLine();
                     int number1 = ReadIntFromInput("Please write first number: ");
                     int number2 = ReadIntFromInput("Please write second number: ");
-                                        
-                    string result = (number1 == number2) ? "Numbers are equal" : "Numbers are not equal"; 
-                    Console.WriteLine(result);                    
+
+                    string result = (number1 == number2) ? "Numbers are equal" : "Numbers are not equal";
+                    Console.WriteLine(result);
                     continueLoop = ExitSolutionMenuView();
-                }                
+                }
             }
             else if (exerciseNumber == 2 && lessonNumber == "Lesson7")
             {
@@ -180,9 +180,9 @@ namespace Week2
                 {
                     Console.WriteLine();
                     int number = ReadIntFromInput("Please type the number: ");
-                    
-                    string result = ( number % 2 != 0) ? "odd." : "even.";
-                    Console.WriteLine($"{number} is {result}");                    
+
+                    string result = (number % 2 != 0) ? "odd." : "even.";
+                    Console.WriteLine($"{number} is {result}");
                     continueLoop = ExitSolutionMenuView();
                 }
             }
@@ -227,7 +227,7 @@ namespace Week2
                     Console.WriteLine();
                     int age = ReadIntFromInput("Please type the age: ");
                     string result = "";
-                                        
+
                     if (age >= 35)
                     {
                         result = "you can become President, Prime Minister, Member of Parliament, and Senator.";
@@ -257,7 +257,7 @@ namespace Week2
                     Console.WriteLine();
                     int height = ReadIntFromInput("Please type your height in cm: ");
                     string result = "";
-                    
+
                     if (height <= 140)
                     {
                         result = "you are dwarf :)";
@@ -292,13 +292,13 @@ namespace Week2
                     int number1 = ReadIntFromInput("Please write number 1: ");
                     int number2 = ReadIntFromInput("Please write number 2: ");
                     int number3 = ReadIntFromInput("Please write number 3: ");
-                 
+
                     int biggestNumber = number1;
                     if (number2 > biggestNumber)
                         biggestNumber = number2;
                     if (number3 > biggestNumber)
                         biggestNumber = number3;
-                    
+
                     Console.WriteLine($"{biggestNumber} is the biggest number.");
                     continueLoop = ExitSolutionMenuView();
                 }
@@ -309,10 +309,10 @@ namespace Week2
 
                 bool continueLoop = true;
                 while (continueLoop)
-                {                    
+                {
                     Console.WriteLine();
                     int mathScore = ReadIntFromInput("Please write math score: ");
-                    int physicsScore= ReadIntFromInput("Please write physic score: ");
+                    int physicsScore = ReadIntFromInput("Please write physic score: ");
                     int chemistryScore = ReadIntFromInput("Please write chemistry score: ");
 
                     if ((mathScore + physicsScore + chemistryScore) > 180 || (mathScore + physicsScore) >= 150 || (mathScore + chemistryScore >= 150))
@@ -328,8 +328,23 @@ namespace Week2
             }
             else if (exerciseNumber == 9 && lessonNumber == "Lesson7")
             {
-                Console.WriteLine("Rozwiazanie zadania 9 lekcja 7");
-                Console.ReadKey();
+                SolutionCaptionView();
+
+                bool continueLoop = true;
+                while (continueLoop)
+                {
+                    Console.WriteLine();
+                    int temp = ReadIntFromInput("Please enter the temperature: ");
+
+                    if (temp < 0) Console.WriteLine("It's f.king freezing!");
+                    else if (temp >= 0 && temp < 10 ) Console.WriteLine("It's cold!");
+                    else if (temp >= 10 && temp < 20) Console.WriteLine("It's chilly!");
+                    else if (temp >= 20 && temp < 30) Console.WriteLine("Warm and nice...");
+                    else if (temp >= 30 && temp < 40) Console.WriteLine("It's starting to get bad, it's hot!");                    
+                    else Console.WriteLine("It is too hot, take me to Alaska!");
+
+                    continueLoop = ExitSolutionMenuView();
+                }
             }
             else if (exerciseNumber == 10 && lessonNumber == "Lesson7")
             {
@@ -404,6 +419,6 @@ namespace Week2
 
         }
 
-                
+
     }
 }
