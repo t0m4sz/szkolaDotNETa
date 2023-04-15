@@ -361,15 +361,41 @@ namespace Week2
                         if (a + b > c && b + c > a && c + a > b) Console.WriteLine("A triangle can be created!");
                         else Console.WriteLine("Sorry, but a triangle cannot be created!");
                     }
-                    else Console.WriteLine("Sorry, but one of the lengths can't be zero or negative!");
+                    else WriteColorText("Sorry, but one of the lengths can't be zero or negative!", Helpers.WARNING_COLOR);
 
                     continueLoop = ExitSolutionMenuView();
                 }
             }
             else if (exerciseNumber == 11 && lessonNumber == "Lesson7")
             {
-                Console.WriteLine("Rozwiazanie zadania 11 lekcja 7");
-                Console.ReadKey();
+                SolutionCaptionView();
+
+                bool continueLoop = true;
+                while (continueLoop)
+                {
+                    Console.WriteLine();
+                    int numberGrade = ReadIntFromInput("Please enter the grade (1-6): ");
+                    string textGrade = "";
+
+                    if (numberGrade >= 1 && numberGrade <= 6)
+                    {
+                        if (numberGrade == 1) textGrade = "Poor";
+                        else if (numberGrade == 2) textGrade = "Pass";
+                        else if (numberGrade == 3) textGrade = "Satisfactory";
+                        else if (numberGrade == 4) textGrade = "Good";
+                        else if (numberGrade == 5) textGrade = "Very Good";
+                        else if (numberGrade == 6) textGrade = "Excellent";
+
+                        Console.WriteLine($"Your grade is {textGrade}!");                        
+                    }
+                    else
+                    {
+                        WriteColorText("Sorry, but it is not a proper grade!", Helpers.WARNING_COLOR);
+                        continueLoop = true;
+                        continue;
+                    }
+                    continueLoop = ExitSolutionMenuView();
+                }
             }
             else if (exerciseNumber == 12 && lessonNumber == "Lesson7")
             {
