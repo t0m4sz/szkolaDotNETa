@@ -412,13 +412,16 @@ namespace Week2
 
                     if (numberDay >= 1 && numberDay <= 7)
                     {
-                        if (numberDay == 1) textDay = "Monday";
-                        else if (numberDay == 2) textDay = "Tuesday";
-                        else if (numberDay == 3) textDay = "Wednesday";
-                        else if (numberDay == 4) textDay = "Thursday";
-                        else if (numberDay == 5) textDay = "Friday";
-                        else if (numberDay == 6) textDay = "Saturday";
-                        else if (numberDay == 7) textDay = "Sunday";
+                        switch (numberDay)
+                        {
+                            case 1: textDay = "Monday"; break;
+                            case 2: textDay = "Tuesday"; break;
+                            case 3: textDay = "Wednesday"; break;
+                            case 4: textDay = "Thursday"; break;
+                            case 5: textDay = "Friday"; break;
+                            case 6: textDay = "Saturday"; break;
+                            case 7: textDay = "Sunday"; break;
+                        }
 
                         Console.WriteLine($"Your day is {textDay}!");
                     }
