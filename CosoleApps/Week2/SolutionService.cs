@@ -212,7 +212,11 @@ namespace Week2
                 {
                     Console.WriteLine();
                     int year = ReadIntFromInput("Please type the year: ");
-                    string result = (year % 4 != 0) ? "not a leap year." : "a leap year.";
+                    string result="";
+                    //string result = (year % 4 != 0) ? "not a leap year." : "a leap year.";
+                    if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) result = "a leap year.";
+                    else result = "not a leap year.";
+
                     Console.WriteLine($"{year} is {result}");
                     continueLoop = ExitSolutionMenuView();
                 }
