@@ -320,7 +320,7 @@ namespace Week2
                         Console.WriteLine("Candidate admitted to the recruitment process.");
                     }
                     else Console.WriteLine("Candidate not admitted to the recruitment process.");
-                    
+
                     continueLoop = ExitSolutionMenuView();
                 }
             }
@@ -335,10 +335,10 @@ namespace Week2
                     int temp = ReadIntFromInput("Please enter the temperature: ");
 
                     if (temp < 0) Console.WriteLine("It's f.king freezing!");
-                    else if (temp >= 0 && temp < 10 ) Console.WriteLine("It's cold!");
+                    else if (temp >= 0 && temp < 10) Console.WriteLine("It's cold!");
                     else if (temp >= 10 && temp < 20) Console.WriteLine("It's chilly!");
                     else if (temp >= 20 && temp < 30) Console.WriteLine("Warm and nice...");
-                    else if (temp >= 30 && temp < 40) Console.WriteLine("It's starting to get bad, it's hot!");                    
+                    else if (temp >= 30 && temp < 40) Console.WriteLine("It's starting to get bad, it's hot!");
                     else Console.WriteLine("It is too hot, take me to Alaska!");
 
                     continueLoop = ExitSolutionMenuView();
@@ -356,7 +356,7 @@ namespace Week2
                     int b = ReadIntFromInput("Please enter length B: ");
                     int c = ReadIntFromInput("Please enter length C: ");
 
-                    if ( a > 0 && b > 0 && c > 0)
+                    if (a > 0 && b > 0 && c > 0)
                     {
                         if (a + b > c && b + c > a && c + a > b) Console.WriteLine("A triangle can be created!");
                         else Console.WriteLine("Sorry, but a triangle cannot be created!");
@@ -388,7 +388,7 @@ namespace Week2
                             case 5: textGrade = "Very Good"; break;
                             case 6: textGrade = "Excellent"; break;
                         }
-                        Console.WriteLine($"Your grade is {textGrade}!");                        
+                        Console.WriteLine($"Your grade is {textGrade}!");
                     }
                     else
                     {
@@ -436,8 +436,38 @@ namespace Week2
             }
             else if (exerciseNumber == 13 && lessonNumber == "Lesson7")
             {
-                Console.WriteLine("Rozwiazanie zadania 13 lekcja 7");
-                Console.ReadKey();
+                SolutionCaptionView();
+
+                bool continueLoop = true;
+                while (continueLoop)
+                {
+                    Console.WriteLine();
+                    double a = ReadDoubleFromInput("Please enter number A: ");
+                    double b = ReadDoubleFromInput("Please enter number B: ");
+                    double result = 0;
+
+                    Console.WriteLine("Please select an action:\r\n1 - addition (A + B)\r\n2 - subtraction (A - B)\r\n3 - multiplication (A * B)\r\n4 - dividing (A : B)\r\n");
+                    Console.Write("Your choice: ");
+                    ConsoleKeyInfo choice = Console.ReadKey();
+                    switch (choice.KeyChar)
+                    {
+                        case '1':
+                            result = a + b;
+                            break;
+                        case '2':
+                            result = a - b;
+                            break;
+                        case '3':
+                            result = a * b;
+                            break;
+                        case '4':
+                            if (b != 0) result = a / b;
+                            else WriteColorText("\r\nError - dividing by zero! \r\nYour variable B cannot be zero if you want to do the division.", Helpers.WARNING_COLOR);
+                            break;
+                    }
+                    if (b != 0) Console.WriteLine($"\r\nResult of operation: {result}");
+                    continueLoop = ExitSolutionMenuView();
+                }
             }
             else if (exerciseNumber == 1 && lessonNumber == "Lesson8")
             {
