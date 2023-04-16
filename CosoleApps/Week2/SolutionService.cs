@@ -213,7 +213,7 @@ namespace Week2
                     Console.WriteLine();
                     int year = ReadIntFromInput("Please type the year: ");
                     string result="";
-                    //string result = (year % 4 != 0) ? "not a leap year." : "a leap year.";
+                    
                     if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) result = "a leap year.";
                     else result = "not a leap year.";
 
@@ -266,15 +266,15 @@ namespace Week2
                     {
                         result = "you are dwarf :)";
                     }
-                    else if (height > 140 && height <= 160)
+                    else if (height <= 160)
                     {
                         result = "you are a bit of a taller dwarf :)";
                     }
-                    else if (height > 160 && height <= 180)
+                    else if (height <= 180)
                     {
                         result = "you are within the European average :)";
                     }
-                    else if (height > 180 && height <= 200)
+                    else if (height <= 200)
                     {
                         result = "you can call yourself tall.";
                     }
