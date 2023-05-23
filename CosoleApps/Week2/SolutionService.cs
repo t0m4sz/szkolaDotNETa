@@ -475,8 +475,32 @@ namespace Week2
             }
             else if (exerciseNumber == 1 && lessonNumber == "Lesson8")
             {
-                Console.WriteLine("Rozwiazanie zadania 1 lekcja 8");
-                Console.ReadKey();
+                SolutionCaptionView();
+
+                bool continueLoop = true;
+                while (continueLoop)
+                {
+                    Console.WriteLine();
+                    int count = 0;
+                    for (int i = 2; i <= 100; i++)
+                    {
+                        bool isPrime = true;
+                        for (int j = 2; j < i; j++)
+                        {
+                            if (i % j == 0)
+                            {
+                                isPrime = false;
+                                break;
+                            }
+                        }
+                        if (isPrime)
+                        {
+                            count++;
+                        }
+                    }
+                    Console.WriteLine($"There is {count} prime numbers in the range 0-100.");
+                    continueLoop = ExitSolutionMenuView();
+                }
             }
             else if (exerciseNumber == 2 && lessonNumber == "Lesson8")
             {
