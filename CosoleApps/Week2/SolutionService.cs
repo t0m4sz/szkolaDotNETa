@@ -504,8 +504,28 @@ namespace Week2
             }
             else if (exerciseNumber == 2 && lessonNumber == "Lesson8")
             {
-                Console.WriteLine("Rozwiazanie zadania 2 lekcja 8");
-                Console.ReadKey();
+                SolutionCaptionView();
+
+                bool continueLoop = true;
+                while (continueLoop)
+                {
+                    Console.WriteLine();
+
+                    int i = 1;
+                    int count = 0;
+                    do {
+                        if (i % 2 == 0)
+                        {
+                            Console.Write($" {i},");
+                            count++;
+                        }                            
+                        i++;
+                    }
+                    while(i <= 1000);
+                    Console.WriteLine($"\r\n\r\nThere is {count} even numbers in the range 0-1000.");
+
+                    continueLoop = ExitSolutionMenuView();
+                }
             }
             else if (exerciseNumber == 3 && lessonNumber == "Lesson8")
             {
