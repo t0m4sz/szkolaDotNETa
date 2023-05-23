@@ -529,8 +529,15 @@ namespace Week2
             }
             else if (exerciseNumber == 3 && lessonNumber == "Lesson8")
             {
-                Console.WriteLine("Rozwiazanie zadania 3 lekcja 8");
-                Console.ReadKey();
+                SolutionCaptionView();
+
+                bool continueLoop = true;
+                while (continueLoop)
+                {
+                    
+
+                    continueLoop = ExitSolutionMenuView();
+                }
             }
             else if (exerciseNumber == 4 && lessonNumber == "Lesson8")
             {
