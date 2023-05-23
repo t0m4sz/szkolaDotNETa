@@ -481,13 +481,10 @@ namespace Week2
                 while (continueLoop)
                 {
                     Console.WriteLine();
-                    //put ex code below
                     int count = 0;
-
                     for (int i = 2; i <= 100; i++)
                     {
                         bool isPrime = true;
-
                         for (int j = 2; j < i; j++)
                         {
                             if (i % j == 0)
@@ -496,14 +493,12 @@ namespace Week2
                                 break;
                             }
                         }
-
                         if (isPrime)
                         {
                             count++;
                         }
                     }
-
-                    Console.WriteLine($"Liczba liczb pierwszych w zakresie od 0 do 100 wynosi: {count}");
+                    Console.WriteLine($"There is {count} prime numbers in the range 0-100.");
                     continueLoop = ExitSolutionMenuView();
                 }
             }

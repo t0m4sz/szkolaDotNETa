@@ -24,7 +24,6 @@ namespace Week2
             }
             return result;
         }
-
         public int MenuActionsView(string menuName, bool warningFlag = false)
         {
             Console.Clear();
@@ -53,14 +52,6 @@ namespace Week2
                     return choosenId;
             }
         }
-        private void WarningMessageView(bool warningFlag)
-        {
-            if (warningFlag == true)
-            {
-                InvalidMsgView("\r\nSorry, that is not a valid choice! Try again!");
-            }
-        }
-        
         public void MenuLinesView (string menuName)
         {
             
@@ -126,13 +117,19 @@ namespace Week2
             Console.WriteLine(message);
             Console.ForegroundColor = Helpers.TEXT_COLOR;
         }
-
         private int ChoiceMenuView(string menuName)
         {
             Console.Write("\nPlease choose which exercise do you want to check: ");
             string choice = Console.ReadLine();
             int choosenId = ValidateMenuChoice(choice, menuName);
             return choosenId;
+        }
+        private void WarningMessageView(bool warningFlag)
+        {
+            if (warningFlag == true)
+            {
+                InvalidMsgView("\r\nSorry, that is not a valid choice! Try again!");
+            }
         }
     }
 }
