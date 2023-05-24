@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net.NetworkInformation;
+using System.Numerics;
 using System.Xml.Linq;
 
 namespace Week2
@@ -534,8 +535,10 @@ namespace Week2
                 bool continueLoop = true;
                 while (continueLoop)
                 {
+                    Console.WriteLine();
+
                     int fNumber = ReadIntFromInput("Enter the number of Fibonacci sequence terms to generate: ");
-                    int[] fSequence = new int[fNumber];
+                    BigInteger[] fSequence = new BigInteger[fNumber];
 
                     for (int i = 0; i < fNumber; i++)
                     {
@@ -544,8 +547,10 @@ namespace Week2
                         else fSequence[i] = fSequence[i - 1] + fSequence[i - 2];
                     }
                     Console.Write("\r\nYour Fibonacci sequence is: ");
-                    //dodpisać wynik
-
+                    foreach (var item in fSequence)
+                    {
+                        Console.Write($" {item},");
+                    }
                     continueLoop = ExitSolutionMenuView();
                 }
             }
