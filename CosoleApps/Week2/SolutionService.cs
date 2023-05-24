@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net.NetworkInformation;
+using System.Numerics;
 using System.Xml.Linq;
 
 namespace Week2
@@ -529,8 +530,29 @@ namespace Week2
             }
             else if (exerciseNumber == 3 && lessonNumber == "Lesson8")
             {
-                Console.WriteLine("Rozwiazanie zadania 3 lekcja 8");
-                Console.ReadKey();
+                SolutionCaptionView();
+
+                bool continueLoop = true;
+                while (continueLoop)
+                {
+                    Console.WriteLine();
+
+                    int fNumber = ReadIntFromInput("Enter the number of Fibonacci sequence terms to generate: ");
+                    BigInteger[] fSequence = new BigInteger[fNumber];
+
+                    for (int i = 0; i < fNumber; i++)
+                    {
+                        if ( i == 0) fSequence[i] = 0;
+                        else if ( i == 1) fSequence[i] = 1;
+                        else fSequence[i] = fSequence[i - 1] + fSequence[i - 2];
+                    }
+                    Console.Write("\r\nYour Fibonacci sequence is: ");
+                    foreach (var item in fSequence)
+                    {
+                        Console.Write($" {item},");
+                    }
+                    continueLoop = ExitSolutionMenuView();
+                }
             }
             else if (exerciseNumber == 4 && lessonNumber == "Lesson8")
             {
