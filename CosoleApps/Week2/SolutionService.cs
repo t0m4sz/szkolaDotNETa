@@ -534,7 +534,17 @@ namespace Week2
                 bool continueLoop = true;
                 while (continueLoop)
                 {
-                    
+                    int fNumber = ReadIntFromInput("Enter the number of Fibonacci sequence terms to generate: ");
+                    int[] fSequence = new int[fNumber];
+
+                    for (int i = 0; i < fNumber; i++)
+                    {
+                        if ( i == 0) fSequence[i] = 0;
+                        else if ( i == 1) fSequence[i] = 1;
+                        else fSequence[i] = fSequence[i - 1] + fSequence[i - 2];
+                    }
+                    Console.Write("\r\nYour Fibonacci sequence is: ");
+                    //dodpisać wynik
 
                     continueLoop = ExitSolutionMenuView();
                 }
